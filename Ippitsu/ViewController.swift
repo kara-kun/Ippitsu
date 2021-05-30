@@ -43,6 +43,18 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         }
         //print(fontArray)
         
+        //-------------firstTextLabelの初期化------------
+        firstTextLabel.textAlignment = NSTextAlignment.center
+        firstTextLabel.frame = CGRect(x:0, y:0, width:260, height:100)
+        firstTextLabel.baselineAdjustment = UIBaselineAdjustment.alignBaselines
+        firstTextLabel.numberOfLines = 1
+        firstTextLabel.textColor = UIColor.white
+        firstTextLabel.backgroundColor = UIColor.blue
+        firstTextLabel.lineBreakMode = NSLineBreakMode.byClipping
+        firstTextLabel.adjustsFontSizeToFitWidth = true
+        firstTextLabel.text = "Text"
+        //firstTextLabel.layer.position = CGPoint(x: self.view.frame.width/2, y:200)
+        
         //ーーーーーーーーーtoolBarの定義ーーーーーーーーーー
         let toolbar = UIToolbar()
         //BarButtonItem「done」のインスタンスを作成
@@ -122,8 +134,5 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         self.inputFontTextField.endEditing(true)
     }
     
-//    func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
-//        return CGRect(x: x, y: y, width: width, height: height)
-//    }
 }
 

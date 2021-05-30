@@ -25,7 +25,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvj-M8-Ph8">
-                                <rect key="frame" x="183" y="172" width="48" height="24"/>
+                                <rect key="frame" x="183" y="202" width="48" height="24"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Label">
                                         <attributes>
@@ -37,6 +37,7 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="hbK-Ez-UQt">
                                 <rect key="frame" x="40" y="414" width="334" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="O1e-pa-D0o"/>
                                 </constraints>
@@ -57,11 +58,12 @@
                             </slider>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Touch here." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ynw-nA-WmL">
                                 <rect key="frame" x="40" y="504" width="334" height="34"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OX4-Pe-QsE">
-                                <rect key="frame" x="40" y="388" width="156" height="18"/>
+                                <rect key="frame" x="40" y="386.5" width="168" height="19.5"/>
                                 <attributedString key="attributedText">
                                     <fragment content="1: Input Your Text Here.">
                                         <attributes>
@@ -74,7 +76,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybU-qj-Mlf">
-                                <rect key="frame" x="40" y="478" width="192.5" height="18"/>
+                                <rect key="frame" x="40" y="476.5" width="212.5" height="19.5"/>
                                 <attributedString key="attributedText">
                                     <fragment content="2: Choose your Favorite Font.">
                                         <attributes>
@@ -86,7 +88,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kow-ES-2C2">
-                                <rect key="frame" x="40" y="558" width="126" height="18"/>
+                                <rect key="frame" x="40" y="558" width="138" height="19.5"/>
                                 <attributedString key="attributedText">
                                     <fragment content="3: Adjust Text Size.">
                                         <attributes>
@@ -99,7 +101,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="1" green="0.92507626023908618" blue="0.84163211472404864" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="ynw-nA-WmL" firstAttribute="top" secondItem="ybU-qj-Mlf" secondAttribute="bottom" constant="8" id="2ic-S1-Kbi"/>
                             <constraint firstItem="8ZJ-IM-r6h" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IkR-8h-C7c"/>
@@ -108,7 +110,6 @@
                             <constraint firstItem="ynw-nA-WmL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="WIO-KM-92t"/>
                             <constraint firstItem="fvj-M8-Ph8" firstAttribute="centerX" secondItem="8ZJ-IM-r6h" secondAttribute="centerX" id="XCr-8Z-dVr"/>
                             <constraint firstItem="ynw-nA-WmL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XFM-q6-6nY"/>
-                            <constraint firstItem="fvj-M8-Ph8" firstAttribute="top" secondItem="8ZJ-IM-r6h" secondAttribute="topMargin" constant="100" id="XgN-O3-cmS"/>
                             <constraint firstItem="ynw-nA-WmL" firstAttribute="top" secondItem="hbK-Ez-UQt" secondAttribute="bottom" constant="40" id="bKt-Np-gZs"/>
                             <constraint firstItem="hbK-Ez-UQt" firstAttribute="top" secondItem="8ZJ-IM-r6h" secondAttribute="bottom" constant="50" id="brX-0h-kZW"/>
                             <constraint firstItem="yhN-5Z-l4S" firstAttribute="top" secondItem="ynw-nA-WmL" secondAttribute="bottom" constant="40" id="dvW-Xn-RCR"/>
@@ -118,6 +119,7 @@
                             <constraint firstItem="hbK-Ez-UQt" firstAttribute="top" secondItem="OX4-Pe-QsE" secondAttribute="bottom" constant="8" id="iht-Qd-y8a"/>
                             <constraint firstItem="8ZJ-IM-r6h" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="kSq-XI-ny4"/>
                             <constraint firstItem="yhN-5Z-l4S" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ozt-iJ-Wb9"/>
+                            <constraint firstItem="fvj-M8-Ph8" firstAttribute="centerY" secondItem="8ZJ-IM-r6h" secondAttribute="centerY" id="tWx-6L-lnA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ynw-nA-WmL" secondAttribute="trailing" constant="40" id="vse-xQ-2pr"/>
                             <constraint firstItem="hbK-Ez-UQt" firstAttribute="leading" secondItem="OX4-Pe-QsE" secondAttribute="leading" id="xo7-Fc-He6"/>
                         </constraints>
