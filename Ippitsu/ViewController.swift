@@ -9,10 +9,14 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    @IBOutlet weak var firstTextLabel: UILabel!
+    //@IBOutlet weak var firstTextLabel: UILabel!
     @IBOutlet weak var inputFirstText: UITextField!
     @IBOutlet weak var inputFontTextField: UITextField!
     @IBOutlet weak var fontSlider: UISlider!
+    @IBOutlet weak var imageView: UIImageView!
+    
+    //-------------firstTextLabelの初期化------------
+    let firstTextLabel = UILabel()
     
     //文字の大きさの初期値
     var fontSize: Double = 24
@@ -44,16 +48,19 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         //print(fontArray)
         
         //-------------firstTextLabelの初期化------------
+        print(imageView.frame)
+        
         firstTextLabel.textAlignment = NSTextAlignment.center
-        firstTextLabel.frame = CGRect(x:0, y:0, width:260, height:100)
+        firstTextLabel.frame = CGRect(x: 0, y: 0 , width:260, height:100)
         firstTextLabel.baselineAdjustment = UIBaselineAdjustment.alignBaselines
         firstTextLabel.numberOfLines = 1
         firstTextLabel.textColor = UIColor.white
-        firstTextLabel.backgroundColor = UIColor.blue
-        firstTextLabel.lineBreakMode = NSLineBreakMode.byClipping
-        firstTextLabel.adjustsFontSizeToFitWidth = true
+        //firstTextLabel.backgroundColor = UIColor.blue
+        firstTextLabel.lineBreakMode = NSLineBreakMode.byTruncatingTail
+        firstTextLabel.adjustsFontSizeToFitWidth = false
         firstTextLabel.text = "Text"
-        //firstTextLabel.layer.position = CGPoint(x: self.view.frame.width/2, y:200)
+        firstTextLabel.layer.position = CGPoint(x: self.imageView.frame.width/2, y:self.imageView.frame.height/2)
+        self.imageView.addSubview(firstTextLabel)
         
         //ーーーーーーーーーtoolBarの定義ーーーーーーーーーー
         let toolbar = UIToolbar()
@@ -79,8 +86,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         //フォントfontSizeSliderの値を設定
         
     }
-    
-    
+
     //inputFirstTextにテキスト入力されたときの処理
     @IBAction func getFirstText(_ sender: UITextField) {
         //firstTextLabelに、inputFirstTextに入力されたテキストを表示
@@ -130,8 +136,22 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         firstTextLabel.font = UIFont(name:fontType, size: CGFloat(fontSize))
     }
     
+    //フォント選択toolBarの「Done」ボタンの処理
     @objc func doneFont() {
+        //pickerViewを消す
         self.inputFontTextField.endEditing(true)
+    }
+    
+    //CREATEボタンが押されたときの処理(Segue)
+        //現在の文字列を取得
+        //現在のフォントを取得
+        //現在の文字サイズを取得
+        //次の画面「PreviewViewController」へ遷移
+ 
+    
+    //遷移先PreviewViewControllerから呼ばれるメソッド
+    @IBAction func backToInputText(_ segue: UIStoryboardSegue) {
+        
     }
     
 }

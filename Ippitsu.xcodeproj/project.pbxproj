@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C64E4ADE2661CC4E00FA3647 /* CustomWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64E4ADD2661CC4E00FA3647 /* CustomWindow.swift */; };
-		C64E4AE22661CCA300FA3647 /* CustomWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C64E4AE12661CCA300FA3647 /* CustomWindow.xib */; };
+		C646AB422663908F0012FDDD /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646AB412663908F0012FDDD /* PreviewViewController.swift */; };
 		C6A56C8526607496004A4C72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A56C8426607496004A4C72 /* AppDelegate.swift */; };
 		C6A56C8726607496004A4C72 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A56C8626607496004A4C72 /* SceneDelegate.swift */; };
 		C6A56C8926607496004A4C72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A56C8826607496004A4C72 /* ViewController.swift */; };
@@ -18,8 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C64E4ADD2661CC4E00FA3647 /* CustomWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWindow.swift; sourceTree = "<group>"; };
-		C64E4AE12661CCA300FA3647 /* CustomWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomWindow.xib; sourceTree = "<group>"; };
+		C646AB412663908F0012FDDD /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		C6A56C8126607496004A4C72 /* Ippitsu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ippitsu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A56C8426607496004A4C72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6A56C8626607496004A4C72 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,8 +65,7 @@
 				C6A56C8D26607497004A4C72 /* Assets.xcassets */,
 				C6A56C8F26607497004A4C72 /* LaunchScreen.storyboard */,
 				C6A56C9226607497004A4C72 /* Info.plist */,
-				C64E4ADD2661CC4E00FA3647 /* CustomWindow.swift */,
-				C64E4AE12661CCA300FA3647 /* CustomWindow.xib */,
+				C646AB412663908F0012FDDD /* PreviewViewController.swift */,
 			);
 			path = Ippitsu;
 			sourceTree = "<group>";
@@ -130,7 +127,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C64E4AE22661CCA300FA3647 /* CustomWindow.xib in Resources */,
 				C6A56C9126607497004A4C72 /* LaunchScreen.storyboard in Resources */,
 				C6A56C8E26607497004A4C72 /* Assets.xcassets in Resources */,
 				C6A56C8C26607496004A4C72 /* Main.storyboard in Resources */,
@@ -145,9 +141,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6A56C8926607496004A4C72 /* ViewController.swift in Sources */,
-				C64E4ADE2661CC4E00FA3647 /* CustomWindow.swift in Sources */,
 				C6A56C8526607496004A4C72 /* AppDelegate.swift in Sources */,
 				C6A56C8726607496004A4C72 /* SceneDelegate.swift in Sources */,
+				C646AB422663908F0012FDDD /* PreviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
