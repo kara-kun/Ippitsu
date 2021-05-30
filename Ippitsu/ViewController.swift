@@ -11,27 +11,29 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
 
     @IBOutlet weak var firstTextLabel: UILabel!
     @IBOutlet weak var inputFirstText: UITextField!
-    @IBOutlet weak var fontPickerView: UIPickerView!
+    @IBOutlet weak var inputFontTextField: UITextField!
+    @IBOutlet weak var fontSlider: UISlider!
     
-
     //文字の大きさの初期値
     var fontSize: Double = 24
     //使用可能なフォントを入れる配列を用意
     var fontArray: [String] = []
     //フォントの種類
     var fontType: String = ""
+    //フォント用ピッカービューの定義
+    var pickerView = UIPickerView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        //----プロトコルのデリゲートを定義
+        //----プロトコルのデリゲートを定義-----
         //TextField
         inputFirstText.delegate = self
         //PickerView
-        fontPickerView.delegate = self
-        fontPickerView.dataSource = self
+        pickerView.delegate = self
+        pickerView.dataSource = self
         
-        //使用可能なフォントを月t
+        //使用可能なフォントを取得
         let familyNames : Array = UIFont.familyNames
         let len = familyNames.count
         for i in 0 ..< len {
@@ -39,31 +41,54 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
             let fontNames = UIFont.fontNames(forFamilyName: fontFamily)
             fontArray.append(contentsOf: fontNames)
         }
-        print(fontArray)
+        //print(fontArray)
         
-
+        //ーーーーーーーーーtoolBarの定義ーーーーーーーーーー
+        let toolbar = UIToolbar()
+        //BarButtonItem「done」のインスタンスを作成
+        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.doneFont))
+        //toolBarに「done」ボタンを追加
+        toolbar.setItems([doneItem], animated: true)
+        //toolBarの幅を設定
+        toolbar.sizeToFit()
+        
+        //フォント入力欄inputFontTextFieldの入力インターフェースをpickerViewに設定（キーボードの代わりに）
+        self.inputFontTextField.inputView = pickerView
+        //同様にフォント入力欄の入力インターフェースpickerViewに、アクセサリーとしてtoolBarを追加
+        self.inputFontTextField.inputAccessoryView = toolbar
     }
     
-    //テキスト入力されたときの処理
+    //--------------画面が描画される際の処理--------------
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        //firstTextLabelのテキストを設定
+        //フォントの種類を設定
+        //フォントfontSizeSliderの値を設定
+        
+    }
+    
+    
+    //inputFirstTextにテキスト入力されたときの処理
     @IBAction func getFirstText(_ sender: UITextField) {
-        //firstTextLabelに入力されたテキストを表示
+        //firstTextLabelに、inputFirstTextに入力されたテキストを表示
         firstTextLabel.text = inputFirstText.text!
         //キーボードを消す
         inputFirstText.endEditing(true);
     }
     
-    //文字サイズ調整スライダーの処理
+    //------------------文字サイズ調整(UISlider)----------------
     @IBAction func fontSizeSlider(_ sender: UISlider) {
-        //スライダーの値をゲットする
+        //fontSizeSliderスライダーの値をゲット。小数点以下を切り捨てて整数値に変換
         let valueSlider = floor(sender.value * 100)
         //print(valueSlider)
-        
         //得られた値をフォントサイズに代入
         fontSize = Double(valueSlider)
         //そのフォントサイズで、firstTextLabelのテキストを再描写
         firstTextLabel.font =  firstTextLabel.font.withSize(CGFloat(fontSize))
     }
     
+    //ーーーーーーーーーフォント選択(pickerView)--------------------
     // UIPickerViewの列の数
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -89,7 +114,16 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
                     inComponent component: Int) {
         
         fontType = fontArray[row]
+        self.inputFontTextField.text = fontType
         firstTextLabel.font = UIFont(name:fontType, size: CGFloat(fontSize))
     }
+    
+    @objc func doneFont() {
+        self.inputFontTextField.endEditing(true)
+    }
+    
+//    func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
+//        return CGRect(x: x, y: y, width: width, height: height)
+//    }
 }
 
