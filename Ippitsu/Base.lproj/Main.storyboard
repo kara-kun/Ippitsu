@@ -92,7 +92,6 @@
                                 <rect key="frame" x="179" y="663" width="56" height="30"/>
                                 <state key="normal" title="CREATE"/>
                                 <connections>
-                                    <action selector="createButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CuR-cX-c4f"/>
                                     <segue destination="dzV-Ix-fkW" kind="show" id="3MX-5x-iPb"/>
                                 </connections>
                             </button>
@@ -139,14 +138,40 @@
                     <view key="view" contentMode="scaleToFill" id="LJg-UJ-0vF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u29-Cg-eYj">
+                                <rect key="frame" x="161" y="691" width="93" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Rewrite TEXT"/>
+                                <connections>
+                                    <segue destination="vcM-Fd-pGu" kind="unwind" unwindAction="backToInputText:" id="m20-MX-ilx"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JHy-3f-Eif">
+                                <rect key="frame" x="57" y="20" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="D6M-mp-JLg"/>
+                                    <constraint firstAttribute="height" constant="300" id="ELx-Xt-BeA"/>
+                                    <constraint firstAttribute="width" secondItem="JHy-3f-Eif" secondAttribute="height" multiplier="1:1" id="XTz-xj-gGX"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="hmc-BY-lJO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="JHy-3f-Eif" firstAttribute="centerX" secondItem="LJg-UJ-0vF" secondAttribute="centerX" id="NMd-k0-NmZ"/>
+                            <constraint firstItem="JHy-3f-Eif" firstAttribute="top" secondItem="hmc-BY-lJO" secondAttribute="top" constant="20" id="mvZ-UI-X0E"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Lc5-rb-tO9"/>
+                    <connections>
+                        <outlet property="imageView" destination="JHy-3f-Eif" id="ZYL-FP-hZZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gtf-Dm-z34" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="vcM-Fd-pGu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="941" y="94"/>
+            <point key="canvasLocation" x="940.57971014492762" y="93.75"/>
         </scene>
     </scenes>
     <resources>

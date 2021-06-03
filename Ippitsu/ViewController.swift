@@ -26,6 +26,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     var fontType: String = ""
     //フォント用ピッカービューの定義
     var pickerView = UIPickerView()
+    
+    //---------遷移先PreviewViewControllerから呼ばれるメソッド--------
+    @IBAction func backToInputText(_ segue: UIStoryboardSegue) {
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,8 +53,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         //print(fontArray)
         
         //-------------firstTextLabelの初期化------------
-        print(imageView.frame)
-        
+            //print(imageView.frame)
         firstTextLabel.textAlignment = NSTextAlignment.center
         firstTextLabel.frame = CGRect(x: 0, y: 0 , width:260, height:100)
         firstTextLabel.baselineAdjustment = UIBaselineAdjustment.alignBaselines
@@ -87,12 +91,14 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         
     }
 
-    //inputFirstTextにテキスト入力されたときの処理
+    //----------inputFirstTextにテキスト入力されたときの処理--------
     @IBAction func getFirstText(_ sender: UITextField) {
         //firstTextLabelに、inputFirstTextに入力されたテキストを表示
         firstTextLabel.text = inputFirstText.text!
         //キーボードを消す
         inputFirstText.endEditing(true);
+        //textに入力されたテキストを入れる
+        //TextAnimation.text = firstTextLabel.text
     }
     
     //------------------文字サイズ調整(UISlider)----------------
@@ -141,17 +147,20 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         //pickerViewを消す
         self.inputFontTextField.endEditing(true)
     }
-    
+
     //CREATEボタンが押されたときの処理(Segue)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //遷移先PreviewViewControllerのインスタンスを設定
+        let previewViewController = segue.destination as! PreviewViewController
         //現在の文字列を取得
+        previewViewController.writtenText = firstTextLabel.text!
         //現在のフォントを取得
+        previewViewController.fontSize = self.fontSize
         //現在の文字サイズを取得
-        //次の画面「PreviewViewController」へ遷移
- 
-    
-    //遷移先PreviewViewControllerから呼ばれるメソッド
-    @IBAction func backToInputText(_ segue: UIStoryboardSegue) {
-        
+        previewViewController.fontType = self.fontType
+            print(previewViewController.writtenText)
+            print(previewViewController.fontSize)
+            print(previewViewController.fontType)
     }
     
 }
