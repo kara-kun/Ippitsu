@@ -55,7 +55,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         //-------------firstTextLabelの初期化------------
             //print(imageView.frame)
         firstTextLabel.textAlignment = NSTextAlignment.center
-        firstTextLabel.frame = CGRect(x: 0, y: 0 , width:260, height:100)
+        firstTextLabel.frame = CGRect(x: 0, y: 0 , width: self.imageView.frame.width, height:100)
         firstTextLabel.baselineAdjustment = UIBaselineAdjustment.alignBaselines
         firstTextLabel.numberOfLines = 1
         firstTextLabel.textColor = UIColor.white

@@ -12,9 +12,7 @@ class TextAnimation: UIView, CAAnimationDelegate {
     var text: String = ""
     var fontSize: Double = 18.0
     var fontType: String = ""
-    
-//    var font: UIFont! = UIFont(name: "Helvetica", size: 17)
-    var textColor: UIColor = UIColor.white//仮(red: 1, green: 1, blue: 1, alpha: 1)
+    var textColor: UIColor = UIColor.red//仮(red: 1, green: 1, blue: 1, alpha: 1)
     var loopCount : Int = 0
     var animateDuration : Double = 3.0
     var eachDuration: Double = 0 //１文字あたりのアニメーション継続時間
@@ -109,12 +107,13 @@ class TextAnimation: UIView, CAAnimationDelegate {
             let animationEnd = CABasicAnimation(keyPath: "opacity")
             animationEnd.fromValue = 1.0
             animationEnd.toValue = 0.0
-            animationEnd.duration = 3.0
+            animationEnd.duration = 2.0
             animationEnd.fillMode = CAMediaTimingFillMode.forwards
             animationEnd.isRemovedOnCompletion = false
             //animationEnd.delegate = self
             animationEnd.beginTime = CACurrentMediaTime() + 4.0//アニメーション終了から4秒後に起動
-                print("animationDidStop CACurrentMediaTime():\(CACurrentMediaTime())")
+                print("CAAnimation:\(anim)")
+                print("flag:\(flag)")
                 print("animationEnd.beginTime:\(animationEnd.beginTime)")
             self.layer.add(animationEnd, forKey: nil)
     }
