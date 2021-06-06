@@ -30,6 +30,7 @@ class TextAnimation: UIView, CAAnimationDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     //入力された文字列に対して、１文字づつUILabelを作成し、配列labelArrayに格納するメソッドを定義
     func makeLabel() {
         //開始x座標を定義（labelRectのx　と同じ）
@@ -42,6 +43,8 @@ class TextAnimation: UIView, CAAnimationDelegate {
         textColor = textColorCreate()
         //入力されたフォントと文字サイズを設定
         let font = UIFont(name: fontType, size: CGFloat(fontSize))
+        //labelArrayを空にする。
+        labelArray = []
         
         //入力された文字列inputTextを、１文字づつ取り出す
         for chr in self.text {
@@ -65,12 +68,19 @@ class TextAnimation: UIView, CAAnimationDelegate {
             }
             
             self.addSubview(label) //以上の状態で、labelを描画する。
-            //１文字づつUILabelにしたものを、配列labelArrayに格納
-            self.labelArray.append(label)
+            self.labelArray.append(label) //１文字づつUILabelにしたものを、配列labelArrayに格納
             //文字数から、１文字あたりの表示時間を決定する。
             eachDuration = animateDuration / Double(self.labelArray.count)
             //labelRactのサイズを更新する。
             labelRect.size = CGSize(width: labelWidth, height: labelHeight)
+        }
+    }
+    
+    //labelを削除するメソッド
+    func removeLabel() {
+        let subviews = self.subviews
+        for subview in subviews {
+            subview.removeFromSuperview()
         }
     }
     
@@ -93,6 +103,9 @@ class TextAnimation: UIView, CAAnimationDelegate {
         while keyFirst == keySecond {
             keySecond = Int.random(in: 1...temporaryArray.count - 1)
         }
+        print("keyFirst\(keyFirst)")
+        print("keySecond\(keySecond)")
+        
         
         for i in 0...self.labelArray.count-1 {
             //CAAnimationGroupインスタンスを定義
@@ -110,7 +123,7 @@ class TextAnimation: UIView, CAAnimationDelegate {
             
             //アニメーショングループに適用するアニメーションを格納し、実行
             animationGroup.animations = [array[0], array[keyFirst], array[keySecond]]
-            animationGroup.delegate = self
+            //animationGroup.delegate = self
             //アニメーションを実行
             animationGroup.beginTime = CACurrentMediaTime() + (eachDuration *  Double(i))
             self.labelArray[i].layer.add(animationGroup, forKey: nil)
@@ -120,7 +133,7 @@ class TextAnimation: UIView, CAAnimationDelegate {
     }
     //------------CAAnimationDelegateプロトコルのデリゲートメソッド実装--------
     //アニメーション終了時の処理
-    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+//    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
 //        print("flag: \(flag)")
 //        print("self.layer.bounds \(self.layer.bounds)")
 //        print("self.layer.position \(self.layer.position)")
@@ -148,7 +161,7 @@ class TextAnimation: UIView, CAAnimationDelegate {
 //            print("CAAnimation:\(anim)")
 //        self.layer.add(animationEnd, forKey: nil)
 //        }
-    }
+//    }
     
     //アニメーションのテンプレート
     func animateType(_ anchor_x: CGFloat, _ anchor_y: CGFloat, _ duration: Double)-> [CABasicAnimation] {
@@ -201,7 +214,7 @@ class TextAnimation: UIView, CAAnimationDelegate {
         animateArray.append(animation4)
 
         //animation:z軸2回転アニメーション
-        let animation5 = CABasicAnimation(keyPath: "transform.rotation")
+        let animation5 = CABasicAnimation(keyPath: "transform.rotation.z")
         animation5.fromValue = .pi * 2.0
         animation5.toValue = 0.0
         animation5.duration = duration

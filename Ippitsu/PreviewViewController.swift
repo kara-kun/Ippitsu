@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class PreviewViewController: UIViewController {
     //ViewControllerからSegueで受け取るパラメーターの初期化
@@ -28,6 +29,8 @@ class PreviewViewController: UIViewController {
             print("fontType \(fontType)")
         
         //ーーーーーーーーー背景色、適用するアニメーションをランダムに決定------------
+        
+        //let animationText = TextAnimation()
         //背景色を決定
         let backGround = backgroundImage()
         imageView.backgroundColor = backGround
@@ -54,17 +57,22 @@ class PreviewViewController: UIViewController {
     
     //「RANDOMIZE」ボタンが押された際の処理 *アニメーション、背景色を再度ランダマイズする。
     @IBAction func btnRandomize(_ sender: Any) {
+        animationText.removeLabel()
         //imageViewから前のテキストを削除
         animationText.removeFromSuperview()
-        
+
         //背景色を再度決定
         let backGround = backgroundImage()
         imageView.backgroundColor = backGround
+        
+        //labelArrayを空にする。
+        animationText.labelArray.removeAll()
+        animationText.labelArray = []
 
-//        //animationTextの文字列、フォント、サイズを、入力されたパラメータに設定
-//        animationText.text = writtenText
-//        animationText.fontSize = self.fontSize
-//        animationText.fontType = self.fontType
+        //animationTextの文字列、フォント、サイズを、入力されたパラメータに設定
+        animationText.text = writtenText
+        animationText.fontSize = self.fontSize
+        animationText.fontType = self.fontType
 
         //animationTextの文字列を設定
         animationText.makeLabel()
