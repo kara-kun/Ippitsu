@@ -18,7 +18,6 @@ class PreviewViewController: UIViewController {
     
     //アニメーションさせる文字列をAnimationLabel型のインスタンスanimationTextとして定義
     let animationText = TextAnimation()
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +26,13 @@ class PreviewViewController: UIViewController {
             print("writtenText \(writtenText)")
             print("fontSize \(fontSize)")
             print("fontType \(fontType)")
-        //imageViewの背景色を設定（*6/2/2021 とりあえず色は仮です）
-        imageView.backgroundColor = UIColor(red: 0.4, green: 0.2, blue: 0.5, alpha: 1)
+        
+        //ーーーーーーーーー背景色、適用するアニメーションをランダムに決定------------
+        //背景色を決定
+        let backGround = backgroundImage()
+        imageView.backgroundColor = backGround
+        //(仮設パラメーター)imageViewの背景色を仮決定（*6/2/2021 あとで消す）
+        //imageView.backgroundColor = UIColor(red: 0.4, green: 0.2, blue: 0.5, alpha: 1)
         
         //animationTextの文字列、フォント、サイズを、入力されたパラメータに設定
         animationText.text = writtenText
@@ -45,11 +49,34 @@ class PreviewViewController: UIViewController {
         //animationTextをviewに追加
         self.imageView.addSubview(animationText)
         //animate()メソッドでアニメーションを実行
-        animationText.animate(animationID: 1)
+        animationText.animate()
     }
     
-    
-    
+    //「RANDOMIZE」ボタンが押された際の処理 *アニメーション、背景色を再度ランダマイズする。
+    @IBAction func btnRandomize(_ sender: Any) {
+        //imageViewから前のテキストを削除
+        animationText.removeFromSuperview()
+        
+        //背景色を再度決定
+        let backGround = backgroundImage()
+        imageView.backgroundColor = backGround
+
+//        //animationTextの文字列、フォント、サイズを、入力されたパラメータに設定
+//        animationText.text = writtenText
+//        animationText.fontSize = self.fontSize
+//        animationText.fontType = self.fontType
+
+        //animationTextの文字列を設定
+        animationText.makeLabel()
+        //animationTextの位置を決定
+        animationText.frame.origin.x = (self.imageView.frame.width / 2) - (animationText.labelRect.width / 2)
+        animationText.frame.origin.y = (self.imageView.frame.height / 2) - (animationText.labelRect.height / 2)
+
+        //animationTextをviewに追加
+        self.imageView.addSubview(animationText)
+        //animate()メソッドでアニメーションを実行
+        animationText.animate()
+    }
     /*
     // MARK: - Navigation
 

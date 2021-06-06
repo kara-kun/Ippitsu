@@ -139,9 +139,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u29-Cg-eYj">
-                                <rect key="frame" x="161" y="691" width="93" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u29-Cg-eYj">
+                                <rect key="frame" x="160.5" y="670" width="93" height="30"/>
                                 <state key="normal" title="Rewrite TEXT"/>
                                 <connections>
                                     <segue destination="vcM-Fd-pGu" kind="unwind" unwindAction="backToInputText:" id="m20-MX-ilx"/>
@@ -155,12 +154,23 @@
                                     <constraint firstAttribute="width" secondItem="JHy-3f-Eif" secondAttribute="height" multiplier="1:1" id="XTz-xj-gGX"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fIK-Xw-7Ox">
+                                <rect key="frame" x="163" y="600" width="88" height="30"/>
+                                <state key="normal" title="RANDOMIZE"/>
+                                <connections>
+                                    <action selector="btnRandomize:" destination="dzV-Ix-fkW" eventType="touchUpInside" id="NAr-B4-Xhl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hmc-BY-lJO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="fIK-Xw-7Ox" firstAttribute="centerX" secondItem="LJg-UJ-0vF" secondAttribute="centerX" id="2ap-JE-IW3"/>
                             <constraint firstItem="JHy-3f-Eif" firstAttribute="centerX" secondItem="LJg-UJ-0vF" secondAttribute="centerX" id="NMd-k0-NmZ"/>
+                            <constraint firstItem="u29-Cg-eYj" firstAttribute="top" secondItem="JHy-3f-Eif" secondAttribute="bottom" constant="350" id="V6d-ns-K8p"/>
                             <constraint firstItem="JHy-3f-Eif" firstAttribute="top" secondItem="hmc-BY-lJO" secondAttribute="top" constant="20" id="mvZ-UI-X0E"/>
+                            <constraint firstItem="u29-Cg-eYj" firstAttribute="centerX" secondItem="LJg-UJ-0vF" secondAttribute="centerX" id="sZi-yh-Yip"/>
+                            <constraint firstItem="u29-Cg-eYj" firstAttribute="top" secondItem="fIK-Xw-7Ox" secondAttribute="bottom" constant="40" id="zEP-CI-tMM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Lc5-rb-tO9"/>
