@@ -21,6 +21,11 @@ class TextAnimation: UIView, CAAnimationDelegate {
     var labelRect: CGRect = CGRect(x: 0, y: 0, width: 0, height: 0)
     var labelArray: [UILabel] = []
     var loopCount: Int = 0 //アニメーションが表示が終了しているかを確認する際に使用
+    var applyAnimations: [CAAnimation] = []
+    var keyFirst: Int = 0 //適用するアニメーションのキーその１
+    var keySecond: Int = 0 //適用するアニメーションのキーその２
+    var dif: Double = 0.0 //アニメーションに適用する位置情報の差分を格納する変数
+    var difArray: [Double] = [] //各文字ごとの位置差分を記録するための配列
     
     //UIView型クラスのイニシャライザ
     override init(frame: CGRect) {
@@ -84,6 +89,28 @@ class TextAnimation: UIView, CAAnimationDelegate {
         }
     }
     
+    //REPLAYボタンが押された際のlabel再描写メソッド
+    func remakeLabel() {
+        let font = UIFont(name: fontType, size: CGFloat(fontSize))
+         var labels: [UILabel] = []
+         for label in labelArray {
+             let newLabel = UILabel()
+             newLabel.text = String(label.text!)
+             newLabel.textColor = self.textColor
+             newLabel.alpha = 0.0
+             newLabel.font = font
+             newLabel.sizeToFit()
+             newLabel.frame.origin.x = label.frame.origin.x
+             newLabel.frame.origin.y =  label.frame.origin.y
+             self.addSubview(newLabel)
+             labels.append(newLabel)
+            
+                print("label.text: \(label.text!)")
+                print("label.alpha: \(label.alpha)")
+         }
+         labelArray = labels
+    }
+    
     //---------アニメーション本体を定義する関数animate（animationIDで複数格納)----------------
     //----------------アニメーション本体を定義する関数animate----------------
     func animate() {
@@ -93,19 +120,19 @@ class TextAnimation: UIView, CAAnimationDelegate {
             self.labelArray.shuffle()
         }
         
+        //difArrayを空にしておく
+        self.difArray = []
+        
         //アニメーションテンプレートの配列を取得(仮)
-        let temporaryArray = animateType(0.0, 0.0, 0.0)
+        let temporaryArray = animateType(0.0, 0.0, 0.0, 0.0)
         print("temporaryArray.count: \(temporaryArray.count)")
         
         //残り二つのアニメーションを定義
-        let keyFirst = Int.random(in: 1...temporaryArray.count - 1)
-        var keySecond = Int.random(in: 1...temporaryArray.count - 1)
+        keyFirst = Int.random(in: 1...temporaryArray.count - 1)
+        keySecond = Int.random(in: 1...temporaryArray.count - 1)
         while keyFirst == keySecond {
             keySecond = Int.random(in: 1...temporaryArray.count - 1)
         }
-        print("keyFirst\(keyFirst)")
-        print("keySecond\(keySecond)")
-        
         
         for i in 0...self.labelArray.count-1 {
             //CAAnimationGroupインスタンスを定義
@@ -114,12 +141,16 @@ class TextAnimation: UIView, CAAnimationDelegate {
             animationGroup.fillMode = CAMediaTimingFillMode.forwards
             animationGroup.isRemovedOnCompletion = false
             
+            //difを作ってanimate()メソッドに渡す。あとで使えるように配列に格納する。
+            dif = Double.random(in:-300...300)
+            self.difArray.append(dif)
+            
             //各文字Labelのアンカーポイントを取得
             let anchor_x = labelArray[i].frame.origin.x + labelArray[i].frame.size.width/2
             let anchor_y = labelArray[i].frame.origin.y + labelArray[i].frame.size.height/2
             
             //アニメーションテンプレートの配列を取得
-            let array = animateType(anchor_x, anchor_y, eachDuration)
+            let array = animateType(anchor_x, anchor_y, eachDuration, dif)
             
             //アニメーショングループに適用するアニメーションを格納し、実行
             animationGroup.animations = [array[0], array[keyFirst], array[keySecond]]
@@ -131,6 +162,35 @@ class TextAnimation: UIView, CAAnimationDelegate {
             //loopCount += 1
         }
     }
+    
+    //REPLAYボタンが押された時のアニメーション定義メソッド
+    func replayAnimate() {
+        for i in 0...self.labelArray.count-1 {
+            //先に適用されたアニメーションを全て削除する
+            //self.labelArray[i].layer.removeAllAnimations()
+            //CAAnimationGroupインスタンスを定義
+            let animationGroup = CAAnimationGroup()
+            animationGroup.duration = animateDuration
+            animationGroup.fillMode = CAMediaTimingFillMode.forwards
+            animationGroup.isRemovedOnCompletion = false
+            
+            //各文字Labelのアンカーポイントを取得
+            let anchor_x = labelArray[i].frame.origin.x + labelArray[i].frame.size.width/2
+            let anchor_y = labelArray[i].frame.origin.y + labelArray[i].frame.size.height/2
+            
+            //アニメーションテンプレートの配列を取得
+            let array = animateType(anchor_x, anchor_y, eachDuration, difArray[i])
+            applyAnimations = [array[0], array[keyFirst], array[keySecond]]
+                        
+            //アニメーショングループに適用するアニメーションを格納し、実行
+            animationGroup.animations = applyAnimations
+            //animationGroup.delegate = self
+            //アニメーションを実行
+            animationGroup.beginTime = CACurrentMediaTime() + (eachDuration *  Double(i))
+            self.labelArray[i].layer.add(animationGroup, forKey: nil)
+        }
+    }
+    
     //------------CAAnimationDelegateプロトコルのデリゲートメソッド実装--------
     //アニメーション終了時の処理
 //    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
@@ -164,7 +224,7 @@ class TextAnimation: UIView, CAAnimationDelegate {
 //    }
     
     //アニメーションのテンプレート
-    func animateType(_ anchor_x: CGFloat, _ anchor_y: CGFloat, _ duration: Double)-> [CABasicAnimation] {
+    func animateType(_ anchor_x: CGFloat, _ anchor_y: CGFloat, _ duration: Double, _ differential: Double)-> [CABasicAnimation] {
         //let anchor_x: CGFloat = 0.0
         //let anchor_y: CGFloat = 0.0
         var animateArray: [CABasicAnimation] = [] //アニメーションのテンプレートを格納する配列
@@ -233,8 +293,7 @@ class TextAnimation: UIView, CAAnimationDelegate {
 
         //animation7:positionアニメーション(垂直方向ランダム)
         let animation7 = CABasicAnimation(keyPath: "position")
-        let difY = Double.random(in: -300...300)
-        animation7.byValue = CGPoint(x: 0.0, y: difY)
+        animation7.byValue = CGPoint(x: 0.0, y: differential)
         animation7.toValue = CGPoint(x: anchor_x, y: anchor_y)
         animation7.duration = duration
         animation7.fillMode = CAMediaTimingFillMode.forwards
@@ -243,8 +302,7 @@ class TextAnimation: UIView, CAAnimationDelegate {
 
         //animation8:positionアニメーション(水平方向ランダム)
         let animation8 = CABasicAnimation(keyPath: "position")
-        let difX = Double.random(in: -300...300)
-        animation8.byValue = CGPoint(x: difX, y: 0.0)
+        animation8.byValue = CGPoint(x: differential, y: 0.0)
         animation8.toValue = CGPoint(x: anchor_x, y: anchor_y)
         animation8.duration = duration
         animation8.fillMode = CAMediaTimingFillMode.forwards

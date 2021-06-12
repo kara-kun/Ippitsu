@@ -8,7 +8,7 @@
 import UIKit
 import AVFoundation
 
-class PreviewViewController: UIViewController {
+class PreviewViewController: UIViewController, RecViewAnimationDelegate {
     //ViewControllerからSegueで受け取るパラメーターの初期化
     var writtenText: String = ""
     var fontSize: Double = 18
@@ -84,6 +84,79 @@ class PreviewViewController: UIViewController {
         self.imageView.addSubview(animationText)
         //animate()メソッドでアニメーションを実行
         animationText.animate()
+    }
+    
+    //REPLAYボタンが押された際の処理
+    @IBAction func replay(_ sender: Any) {
+        animationText.removeLabel()
+        //imageViewから前のテキストを削除
+        animationText.removeFromSuperview()
+
+        animationText.remakeLabel()
+
+        animationText.frame.origin.x = (self.imageView.frame.width / 2) - (animationText.labelRect.width / 2)
+        animationText.frame.origin.y = (self.imageView.frame.height / 2) - (animationText.labelRect.height / 2)
+        //replayTextAnimationをviewに追加
+        imageView.addSubview(animationText)
+        //replayTextAnimationのアニメーションを実行
+        animationText.replayAnimate()
+    }
+    
+    @IBAction func export(_ sender: Any) {
+        animationText.removeLabel()
+        //imageViewから前のテキストを削除
+        animationText.removeFromSuperview()
+
+        //レコーダーのインスタンスを設定
+        let recorder = RecViewAnimation.shared
+        recorder.delegate = self
+
+        //REPLAYと同じ処理でアニメーションする手前までを実施
+        animationText.remakeLabel()
+        animationText.frame.origin.x = (self.imageView.frame.width / 2) - (animationText.labelRect.width / 2)
+        animationText.frame.origin.y = (self.imageView.frame.height / 2) - (animationText.labelRect.height / 2)
+        //replayTextAnimationをviewに追加
+        imageView.addSubview(animationText)
+
+        //記録開始
+        let startRecord = recorder.startRecording(view: imageView, fpsSetting: 30)
+        //正常に録画が開始されたら
+        if startRecord == true {
+            //文字列が表示されない状態で0.5秒間待つ
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                //replayTextAnimationのアニメーションを実行
+                self.animationText.replayAnimate()
+            }
+        }
+
+        //5秒で録画を停止する。
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+            let stopRecording = recorder.stopRecording()
+            //正常に録画が終了していたら
+            if stopRecording == true {
+                //保存された動画を処理するActivityViewControllerを立ち上げる
+                if let fileURL = recorder.destinationURL {
+                    let controller = UIActivityViewController(activityItems: [fileURL], applicationActivities: nil)
+                    //activeViewControllerから除外する機能を指定
+                    controller.excludedActivityTypes = [
+                            .addToReadingList,
+                            .assignToContact,
+                            .mail,
+                            .markupAsPDF,
+                            .openInIBooks,
+                            .postToFacebook,
+                            .postToFlickr,
+                            .postToTencentWeibo,
+                            .postToVimeo,
+                            .postToWeibo,
+                            .print,
+                        ]
+                    self.present(controller, animated: true, completion: nil)
+                }
+            }
+        }
+        
+        
     }
     /*
     // MARK: - Navigation

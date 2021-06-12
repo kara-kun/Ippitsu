@@ -15,6 +15,7 @@
 		C6A56C8926607496004A4C72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A56C8826607496004A4C72 /* ViewController.swift */; };
 		C6A56C8C26607496004A4C72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6A56C8A26607496004A4C72 /* Main.storyboard */; };
 		C6A56C8E26607497004A4C72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6A56C8D26607497004A4C72 /* Assets.xcassets */; };
+		C6CFF56C2670F4E90065C9A9 /* RecordingViewAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CFF56B2670F4E90065C9A9 /* RecordingViewAnimation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		C6A56C8B26607496004A4C72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C6A56C8D26607497004A4C72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6A56C9226607497004A4C72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6CFF56B2670F4E90065C9A9 /* RecordingViewAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingViewAnimation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				C646AB412663908F0012FDDD /* PreviewViewController.swift */,
 				C686B1A72669124900B6A9F9 /* LaunchScreen.storyboard */,
 				C68033052667549700A19513 /* TextAnimation.swift */,
+				C6CFF56B2670F4E90065C9A9 /* RecordingViewAnimation.swift */,
 			);
 			path = Ippitsu;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6A56C8926607496004A4C72 /* ViewController.swift in Sources */,
+				C6CFF56C2670F4E90065C9A9 /* RecordingViewAnimation.swift in Sources */,
 				C6A56C8526607496004A4C72 /* AppDelegate.swift in Sources */,
 				C6A56C8726607496004A4C72 /* SceneDelegate.swift in Sources */,
 				C68033062667549700A19513 /* TextAnimation.swift in Sources */,
