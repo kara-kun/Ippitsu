@@ -151,12 +151,37 @@ class PreviewViewController: UIViewController, RecViewAnimationDelegate {
                             .postToWeibo,
                             .print,
                         ]
+                    
+                    //activityViewControllerがdismissされた際のハンドラーを定義＝書き出した動画をtmpから削除してストレージを解放
+                    controller.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
+                        if !completed {
+                            // User canceled
+                            print("キャンセルされました")
+                            //tmpムービーの削除
+                            do {
+                                try FileManager.default.removeItem(at: fileURL)
+                            } catch {
+                                print("動画を削除できませんでした：　\(error.localizedDescription)")
+                                return
+                            }
+                            return
+                        }
+                        // User completed activity
+                        print("ActivityViewControllerの操作が完了しました")
+                        //tmpムービーの削除
+                        do {
+                            try FileManager.default.removeItem(at: fileURL)
+                        } catch {
+                            print("動画を削除できませんでした：　\(error.localizedDescription)")
+                            return
+                        }
+                        return
+                    }
+                    //ActivityViewControllerの表示
                     self.present(controller, animated: true, completion: nil)
                 }
             }
         }
-        
-        
     }
     /*
     // MARK: - Navigation
