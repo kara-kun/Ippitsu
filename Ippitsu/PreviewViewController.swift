@@ -130,7 +130,7 @@ class PreviewViewController: UIViewController, RecViewAnimationDelegate {
         }
 
         //5秒で録画を停止する。
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6.0) {
             let stopRecording = recorder.stopRecording()
             //正常に録画が終了していたら
             if stopRecording == true {
