@@ -19,7 +19,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     let firstTextLabel = UILabel()
     
     //文字の大きさの初期値
-    var fontSize: Double = 24
+    var fontSize: Double = 18.0
     //使用可能なフォントを入れる配列を用意
     var fontArray: [String] = []
     //フォントの種類
@@ -51,20 +51,28 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
             fontArray.append(contentsOf: fontNames)
         }
         //print(fontArray)
+        //フォントタイプを取得したフォント配列の最初の要素に設定しておく。
+        fontType = fontArray[0]
+        print(fontType)
         
         //-------------firstTextLabelの初期化------------
             //print(imageView.frame)
         firstTextLabel.textAlignment = NSTextAlignment.center
-        firstTextLabel.frame = CGRect(x: 0, y: 0 , width: self.imageView.frame.width, height:100)
+        firstTextLabel.frame = CGRect(x: 0, y: 0 , width: self.imageView.frame.width / 1.1, height:100)
         firstTextLabel.baselineAdjustment = UIBaselineAdjustment.alignBaselines
         firstTextLabel.numberOfLines = 1
         firstTextLabel.textColor = UIColor.white
-        //firstTextLabel.backgroundColor = UIColor.blue
-        firstTextLabel.lineBreakMode = NSLineBreakMode.byTruncatingTail
+        firstTextLabel.layer.borderColor = CGColor(gray: 0.2, alpha: 1.0)
+        firstTextLabel.layer.borderWidth = 1.0
+        firstTextLabel.font = UIFont(name:fontType, size: CGFloat(fontSize))
+        firstTextLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         firstTextLabel.adjustsFontSizeToFitWidth = false
-        firstTextLabel.text = "Text"
+        firstTextLabel.text = "Your word will appear here."
         firstTextLabel.layer.position = CGPoint(x: self.imageView.frame.width/2, y:self.imageView.frame.height/2)
         self.imageView.addSubview(firstTextLabel)
+        
+        //スライダーの値を、設定したfontSizeの初期値(＝24)にする。
+        fontSlider.value = Float(fontSize/100)
         
         //ーーーーーーーーーtoolBarの定義ーーーーーーーーーー
         let toolbar = UIToolbar()
@@ -79,16 +87,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         self.inputFontTextField.inputView = pickerView
         //同様にフォント入力欄の入力インターフェースpickerViewに、アクセサリーとしてtoolBarを追加
         self.inputFontTextField.inputAccessoryView = toolbar
-    }
-    
-    //--------------画面が描画される際の処理--------------
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
-        //firstTextLabelのテキストを設定
-        //フォントの種類を設定
-        //フォントfontSizeSliderの値を設定
-        
     }
 
     //----------inputFirstTextにテキスト入力されたときの処理--------

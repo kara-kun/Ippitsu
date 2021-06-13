@@ -23,10 +23,16 @@ class PreviewViewController: UIViewController, RecViewAnimationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        //ViewControllerからSegueでパラメーターの中身が送られてきているか確認(後で消す)
+        //ViewControllerからSegueでパラメーターの中身が送られてきているか確認
             print("writtenText \(writtenText)")
             print("fontSize \(fontSize)")
             print("fontType \(fontType)")
+    
+    }
+    
+    //ViewWillAppear
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         
         //ーーーーーーーーー背景色、適用するアニメーションをランダムに決定------------
         

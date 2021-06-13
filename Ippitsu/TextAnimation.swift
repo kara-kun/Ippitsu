@@ -40,6 +40,7 @@ class TextAnimation: UIView, CAAnimationDelegate {
     func makeLabel() {
         //最初に既存のCAレイヤーをすべて取り除く
         self.layer.removeAllAnimations()
+        
         //開始x座標を定義（labelRectのx　と同じ）
         var startx: CGFloat = labelRect.origin.x
             print("startx = \(startx)")
@@ -81,6 +82,7 @@ class TextAnimation: UIView, CAAnimationDelegate {
             //labelRactのサイズを更新する。
             labelRect.size = CGSize(width: labelWidth, height: labelHeight)
         }
+        print("TextAnimation labelRect: \(labelRect)")
         //CALayerの位置をlabelRectの大きさ＊1/2分だけ調整し、bounds.sizeを与える(これをしないと拡大、縮小の中心点がLeft-Topにずれる)
         self.layer.frame.origin = CGPoint(x: self.layer.position.x + labelRect.size.width/2, y: self.layer.position.y +  labelRect.size.height/2)
         self.layer.bounds.size = labelRect.size
@@ -98,12 +100,10 @@ class TextAnimation: UIView, CAAnimationDelegate {
     func remakeLabel() {
         //最初にレイヤーをすべて取り除く
         self.layer.removeAllAnimations()
-        //前のlabelArrayからUILableを取り出して再配置したのち、新たにremake専用の配列に格納する。
+        
         let font = UIFont(name: fontType, size: CGFloat(fontSize))
-        //remake専用のUILabel配列を初期化
-        var labels: [UILabel] = []
-        //作成済みのlabelArrayの中身UILabelを一つづつ取り出す。
-        for label in labelArray {
+         var labels: [UILabel] = []
+         for label in labelArray {
              let newLabel = UILabel()
              newLabel.text = String(label.text!)
              newLabel.textColor = self.textColor
@@ -112,10 +112,12 @@ class TextAnimation: UIView, CAAnimationDelegate {
              newLabel.sizeToFit()
              newLabel.frame.origin.x = label.frame.origin.x
              newLabel.frame.origin.y =  label.frame.origin.y
-             self.addSubview(newLabel) //前と同じ位置に同じパラメータで配置する。
-             labels.append(newLabel) //配列labelsに格納する。
+             self.addSubview(newLabel)
+             labels.append(newLabel)
+            
+                print("label.text: \(label.text!)")
+                print("label.alpha: \(label.alpha)")
          }
-         //labelsの中にをlabelArrayに戻す。
          labelArray = labels
         //CALayerの位置をlabelRectの大きさ＊1/2分だけ調整し、bounds.sizeを与える(これをしないと拡大、縮小の中心点がLeft-Topにずれる)
         self.layer.frame.origin = CGPoint(x: self.layer.position.x + labelRect.size.width/2, y: self.layer.position.y +  labelRect.size.height/2)
@@ -135,7 +137,7 @@ class TextAnimation: UIView, CAAnimationDelegate {
         self.difArray = []
         
         //アニメーションテンプレートの配列を取得(仮)
-        let temporaryArray = animateType(0.0, 0.0, 0.0, 0.0)
+        let temporaryArray = animateType(0.0, 0.0, 0.0, 0)
         print("temporaryArray.count: \(temporaryArray.count)")
         
         //残り二つのアニメーションを定義
@@ -144,6 +146,8 @@ class TextAnimation: UIView, CAAnimationDelegate {
         while keyFirst == keySecond {
             keySecond = Int.random(in: 1...temporaryArray.count - 1)
         }
+            print("keyFirst\(keyFirst)")
+            print("keySecond\(keySecond)")
         
         for i in 0...self.labelArray.count-1 {
             //CAAnimationGroupインスタンスを定義
@@ -162,9 +166,10 @@ class TextAnimation: UIView, CAAnimationDelegate {
             
             //アニメーションテンプレートの配列を取得
             let array = animateType(anchor_x, anchor_y, eachDuration, dif)
+            applyAnimations = [array[0], array[keyFirst], array[keySecond]]
             
             //アニメーショングループに適用するアニメーションを格納し、実行
-            animationGroup.animations = [array[0], array[keyFirst], array[keySecond]]
+            animationGroup.animations = applyAnimations
             //終了時の動作(最初の１文字のアニメーションが終了したらanimationDidStopデリゲートを発動)
             if i == 0 {
                 animationGroup.delegate = self
@@ -175,7 +180,6 @@ class TextAnimation: UIView, CAAnimationDelegate {
         }
     }
     
-    //REPLAYボタンが押された時のアニメーション定義メソッド
     func replayAnimate() {
         for i in 0...self.labelArray.count-1 {
             //先に適用されたアニメーションを全て削除する
@@ -205,12 +209,23 @@ class TextAnimation: UIView, CAAnimationDelegate {
             self.labelArray[i].layer.add(animationGroup, forKey: nil)
         }
     }
-    
     //------------CAAnimationDelegateプロトコルのデリゲートメソッド実装--------
     //アニメーション終了時の処理
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        
-        //大きさtransition.scaleをX1.1にするアニメーションを設定
+        //print("self.layer.frame.origin BEFORE \(self.layer.bounds.origin)")
+//        //CALayerの位置をlabelRectの大きさ＊1/2分だけ調整し、bounds.sizeを与える(これをしないと拡大、縮小の中心点がLeft-Topにずれる)
+//        self.layer.frame.origin = CGPoint(x: self.layer.position.x + labelRect.size.width/2, y: self.layer.position.y +  labelRect.size.height/2)
+//        self.layer.bounds.size = labelRect.size
+
+        //print("flag: \(flag)")
+        //print("self.layer.bounds.size \(self.layer.bounds.size)")
+        //print("self.layer.frame.origin AFTER \(self.layer.bounds.origin)")
+        //print("self.layer.position \(self.layer.position)")
+        //print("labelRect.origin\(labelRect.origin)")
+        //print("labelRect.size\(labelRect.size)")
+        //print("self.layer.frame \(self.layer.frame)")
+        print("flag: \(flag)")
+        //不透明度を1->０にするアニメーションを設定
         let endAnimation01 = CABasicAnimation(keyPath: "transform.scale")
         endAnimation01.fromValue = 1.0
         endAnimation01.toValue = 1.1
@@ -219,8 +234,9 @@ class TextAnimation: UIView, CAAnimationDelegate {
         endAnimationGroup.duration = 2.0
         endAnimationGroup.fillMode = CAMediaTimingFillMode.forwards
         endAnimationGroup.isRemovedOnCompletion = false
-        endAnimationGroup.beginTime = CACurrentMediaTime() //アニメーション終了時に起動
+        endAnimationGroup.beginTime = CACurrentMediaTime() //アニメーション終了から4秒後に起動
         endAnimationGroup.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        //animationEnd.delegate = self
         endAnimationGroup.animations = [endAnimation01]
         self.layer.add(endAnimationGroup, forKey: nil)
     }
