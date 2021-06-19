@@ -26,6 +26,9 @@ class TextAnimation: UIView, CAAnimationDelegate {
     var keySecond: Int = 0 //適用するアニメーションのキーその２
     var dif: Double = 0.0 //アニメーションに適用する位置情報の差分を格納する変数
     var difArray: [Double] = [] //各文字ごとの位置差分を記録するための配列
+    var endID: Int = 1 //エンドアニメーション用のID
+    var endFLAG: Bool = true //delegateメソッド用
+    var endAnimationFlag: Bool = true //ボタンの有効無効切り替えの目印
     
     //UIView型クラスのイニシャライザ
     override init(frame: CGRect) {
@@ -38,6 +41,8 @@ class TextAnimation: UIView, CAAnimationDelegate {
     
     //入力された文字列に対して、１文字づつUILabelを作成し、配列labelArrayに格納するメソッドを定義
     func makeLabel() {
+        //ボタンを無効化するフラグをfalseにする
+        endAnimationFlag = false
         //最初に既存のCAレイヤーをすべて取り除く
         self.layer.removeAllAnimations()
         
@@ -98,6 +103,8 @@ class TextAnimation: UIView, CAAnimationDelegate {
     
     //REPLAYボタンが押された際のlabel再描写メソッド
     func remakeLabel() {
+        //ボタンを無効化するフラグをfalseにする
+        endAnimationFlag = false
         //最初にレイヤーをすべて取り除く
         self.layer.removeAllAnimations()
         
@@ -135,6 +142,8 @@ class TextAnimation: UIView, CAAnimationDelegate {
         
         //difArrayを空にしておく
         self.difArray = []
+        //新規アニメーションなので、endFLAGをtrueにする
+        endFLAG = true
         
         //アニメーションテンプレートの配列を取得(仮)
         let temporaryArray = animateType(0.0, 0.0, 0.0, 0)
@@ -181,6 +190,9 @@ class TextAnimation: UIView, CAAnimationDelegate {
     }
     
     func replayAnimate() {
+        //再現アニメーションなので、endFLAGをfalseにする
+        endFLAG = false
+        
         for i in 0...self.labelArray.count-1 {
             //先に適用されたアニメーションを全て削除する
             //self.labelArray[i].layer.removeAllAnimations()
@@ -212,33 +224,58 @@ class TextAnimation: UIView, CAAnimationDelegate {
     //------------CAAnimationDelegateプロトコルのデリゲートメソッド実装--------
     //アニメーション終了時の処理
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        //print("self.layer.frame.origin BEFORE \(self.layer.bounds.origin)")
-//        //CALayerの位置をlabelRectの大きさ＊1/2分だけ調整し、bounds.sizeを与える(これをしないと拡大、縮小の中心点がLeft-Topにずれる)
-//        self.layer.frame.origin = CGPoint(x: self.layer.position.x + labelRect.size.width/2, y: self.layer.position.y +  labelRect.size.height/2)
-//        self.layer.bounds.size = labelRect.size
-
-        //print("flag: \(flag)")
-        //print("self.layer.bounds.size \(self.layer.bounds.size)")
-        //print("self.layer.frame.origin AFTER \(self.layer.bounds.origin)")
-        //print("self.layer.position \(self.layer.position)")
-        //print("labelRect.origin\(labelRect.origin)")
-        //print("labelRect.size\(labelRect.size)")
-        //print("self.layer.frame \(self.layer.frame)")
-        print("flag: \(flag)")
-        //不透明度を1->０にするアニメーションを設定
+        //トランザクション開始
+        CATransaction.begin()
+        //EndAnimationが終了したらendAnimationFlagをtrueにする->ボタンが有効化する
+        CATransaction.setCompletionBlock {
+            self.endAnimationFlag = true
+            print(self.endAnimationFlag)
+        }
+        print("animationDidStop.flag: \(flag)")
+        //----------エンドアニメーションを定義-----------
+        //スケールを1->1.1にするアニメーション
         let endAnimation01 = CABasicAnimation(keyPath: "transform.scale")
         endAnimation01.fromValue = 1.0
-        endAnimation01.toValue = 1.1
-    
+        endAnimation01.toValue = 1.2
+        //4回転するアニメーション
+        let endAnimation02 = CABasicAnimation(keyPath: "transform.rotation.x")
+        endAnimation02.byValue = .pi * 6.0
+        endAnimation02.toValue = 0.0
+        //上下に跳ねるアニメーション
+        let endAnimation03 = CASpringAnimation(keyPath: "position.y")
+        endAnimation03.byValue = 1.0
+        endAnimation03.fromValue = self.layer.frame.origin.y + labelRect.size.height/2
+        endAnimation03.mass = 0.5
+        endAnimation03.initialVelocity = 200.0
+        endAnimation03.damping = 2.0
+        endAnimation03.stiffness = 120.0
+        
+        //End用のアニメーショングループを定義
         let endAnimationGroup = CAAnimationGroup()
         endAnimationGroup.duration = 2.0
         endAnimationGroup.fillMode = CAMediaTimingFillMode.forwards
         endAnimationGroup.isRemovedOnCompletion = false
-        endAnimationGroup.beginTime = CACurrentMediaTime() //アニメーション終了から4秒後に起動
+        endAnimationGroup.beginTime = CACurrentMediaTime()
         endAnimationGroup.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        //animationEnd.delegate = self
-        endAnimationGroup.animations = [endAnimation01]
+        //適用するendAnimationを決定
+        print("endFLAG \(endFLAG)")
+        if endFLAG == true {
+            endID = Int.random(in: 1...3)
+            endFLAG = false
+        }
+        print("endID \(endID)")
+        
+        if endID == 1 {
+            endAnimationGroup.animations = [endAnimation01]
+        } else if endID == 2 {
+            endAnimationGroup.animations = [endAnimation01, endAnimation02]
+        } else if endID == 3 {
+            endAnimationGroup.animations = [endAnimation03]
+        }
+        
         self.layer.add(endAnimationGroup, forKey: nil)
+        //トランザクションコミット
+        CATransaction.commit()
     }
     
     //アニメーションのテンプレート
@@ -335,6 +372,24 @@ class TextAnimation: UIView, CAAnimationDelegate {
         animation9.fillMode = CAMediaTimingFillMode.forwards
         animation9.isRemovedOnCompletion = false
         animateArray.append(animation9)
+        
+        //animation10:スケールをX20->X1へ変えるアニメーション
+        let animation10 = CABasicAnimation(keyPath: "transform.scale")
+        animation10.fromValue = 20.0
+        animation10.toValue = 1.0
+        animation10.duration = duration
+        animation10.fillMode = CAMediaTimingFillMode.forwards
+        animation10.isRemovedOnCompletion = false
+        animateArray.append(animation10)
+        
+        //animation11:positionアニメーション(出現位置ランダム)
+        let animation11 = CABasicAnimation(keyPath: "position")
+        animation11.byValue = CGPoint(x: differential, y: differential)
+        animation11.toValue = CGPoint(x: anchor_x, y: anchor_y)
+        animation11.duration = duration
+        animation11.fillMode = CAMediaTimingFillMode.forwards
+        animation11.isRemovedOnCompletion = false
+        animateArray.append(animation11)
 
         return animateArray
     }
@@ -357,12 +412,12 @@ public func backgroundImage() -> UIColor {
 }
 
 public func textColorCreate() -> UIColor {
-    let blueTX = UIColor(red: 0.7, green: 0.7, blue: 1.0, alpha: 1.0)
-    let redTX = UIColor(red: 1.0, green: 0.7, blue: 0.7, alpha: 1.0)
-    let greenTX = UIColor(red: 0.7, green: 1.0, blue: 0.7, alpha: 1.0)
-    let cyanTX = UIColor(red: 0.7, green: 1.0, blue: 1.0, alpha: 1.0)
-    let yellowTX = UIColor(red: 1.0, green: 1.0, blue: 0.7, alpha: 1.0)
-    let magentaTX = UIColor(red: 1.0, green: 0.7, blue: 1.0, alpha: 1.0)
+    let blueTX = UIColor(red: 0.8, green: 0.8, blue: 1.0, alpha: 1.0)
+    let redTX = UIColor(red: 1.0, green: 0.8, blue: 0.8, alpha: 1.0)
+    let greenTX = UIColor(red: 0.8, green: 1.0, blue: 0.8, alpha: 1.0)
+    let cyanTX = UIColor(red: 0.8, green: 1.0, blue: 1.0, alpha: 1.0)
+    let yellowTX = UIColor(red: 1.0, green: 1.0, blue: 0.8, alpha: 1.0)
+    let magentaTX = UIColor(red: 1.0, green: 0.8, blue: 1.0, alpha: 1.0)
     let whiteTX = UIColor.white
     
     let colorTX: [UIColor] = [blueTX, redTX, greenTX, cyanTX, yellowTX, magentaTX, whiteTX,]

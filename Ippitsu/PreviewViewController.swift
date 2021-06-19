@@ -16,6 +16,9 @@ class PreviewViewController: UIViewController, RecViewAnimationDelegate {
     
     //ImageView接続
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var replayBTN: UIButton!
+    @IBOutlet weak var randomBTN: UIButton!
+    @IBOutlet weak var exportBTN: UIButton!
     
     //アニメーションさせる文字列をAnimationLabel型のインスタンスanimationTextとして定義
     let animationText = TextAnimation()
@@ -51,6 +54,13 @@ class PreviewViewController: UIViewController, RecViewAnimationDelegate {
         //animationTextの文字列を設定
         animationText.makeLabel()
         
+        //ボタンを無効化する
+        if animationText.endAnimationFlag == false {
+            replayBTN.isEnabled = false
+            randomBTN.isEnabled = false
+            exportBTN.isEnabled = false
+        }
+        
         //animationTextの位置を決定
         animationText.frame.origin.x = (self.imageView.frame.width / 2) - (animationText.labelRect.width / 2)
         animationText.frame.origin.y = (self.imageView.frame.height / 2) - (animationText.labelRect.height / 2)
@@ -59,6 +69,15 @@ class PreviewViewController: UIViewController, RecViewAnimationDelegate {
         self.imageView.addSubview(animationText)
         //animate()メソッドでアニメーションを実行
         animationText.animate()
+        
+        //5.5秒後にボタンを有効化する(本当は5秒で良いのだが割り込みが入るとたまに遅延するので0.5秒余裕加える)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.5) {
+            if self.animationText.endAnimationFlag == true {
+                self.replayBTN.isEnabled = true
+                self.randomBTN.isEnabled = true
+                self.exportBTN.isEnabled = true
+            }
+        }
     }
     
     //「RANDOMIZE」ボタンが押された際の処理 *アニメーション、背景色を再度ランダマイズする。
@@ -82,6 +101,12 @@ class PreviewViewController: UIViewController, RecViewAnimationDelegate {
 
         //animationTextの文字列を設定
         animationText.makeLabel()
+        //ボタンを無効化する
+        if animationText.endAnimationFlag == false {
+            replayBTN.isEnabled = false
+            randomBTN.isEnabled = false
+            exportBTN.isEnabled = false
+        }
         //animationTextの位置を決定
         animationText.frame.origin.x = (self.imageView.frame.width / 2) - (animationText.labelRect.width / 2)
         animationText.frame.origin.y = (self.imageView.frame.height / 2) - (animationText.labelRect.height / 2)
@@ -90,6 +115,15 @@ class PreviewViewController: UIViewController, RecViewAnimationDelegate {
         self.imageView.addSubview(animationText)
         //animate()メソッドでアニメーションを実行
         animationText.animate()
+        
+        //5.5秒後にボタンを有効化する(本当は5秒で良いのだが割り込みが入るとたまに遅延するので0.5秒余裕加える)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.5) {
+            if self.animationText.endAnimationFlag == true {
+                self.replayBTN.isEnabled = true
+                self.randomBTN.isEnabled = true
+                self.exportBTN.isEnabled = true
+            }
+        }
     }
     
     //REPLAYボタンが押された際の処理
@@ -97,8 +131,14 @@ class PreviewViewController: UIViewController, RecViewAnimationDelegate {
         animationText.removeLabel()
         //imageViewから前のテキストを削除
         animationText.removeFromSuperview()
-
+        //ラベルを際配置
         animationText.remakeLabel()
+        //ボタンを無効化する
+        if animationText.endAnimationFlag == false {
+            replayBTN.isEnabled = false
+            randomBTN.isEnabled = false
+            exportBTN.isEnabled = false
+        }
 
         animationText.frame.origin.x = (self.imageView.frame.width / 2) - (animationText.labelRect.width / 2)
         animationText.frame.origin.y = (self.imageView.frame.height / 2) - (animationText.labelRect.height / 2)
@@ -106,6 +146,14 @@ class PreviewViewController: UIViewController, RecViewAnimationDelegate {
         imageView.addSubview(animationText)
         //replayTextAnimationのアニメーションを実行
         animationText.replayAnimate()
+        //5.5秒後にボタンを有効化する(本当は5秒で良いのだが割り込みが入るとたまに遅延するので0.5秒余裕加える)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.5) {
+            if self.animationText.endAnimationFlag == true {
+                self.replayBTN.isEnabled = true
+                self.randomBTN.isEnabled = true
+                self.exportBTN.isEnabled = true
+            }
+        }
     }
     
     @IBAction func export(_ sender: Any) {
@@ -119,6 +167,12 @@ class PreviewViewController: UIViewController, RecViewAnimationDelegate {
 
         //REPLAYと同じ処理でアニメーションする手前までを実施
         animationText.remakeLabel()
+        //ボタンを無効化する
+        if animationText.endAnimationFlag == false {
+            replayBTN.isEnabled = false
+            randomBTN.isEnabled = false
+            exportBTN.isEnabled = false
+        }
         animationText.frame.origin.x = (self.imageView.frame.width / 2) - (animationText.labelRect.width / 2)
         animationText.frame.origin.y = (self.imageView.frame.height / 2) - (animationText.labelRect.height / 2)
         //replayTextAnimationをviewに追加
@@ -160,6 +214,13 @@ class PreviewViewController: UIViewController, RecViewAnimationDelegate {
                     
                     //activityViewControllerがdismissされた際のハンドラーを定義＝書き出した動画をtmpから削除してストレージを解放
                     controller.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
+                        //ボタンを有効化する
+                        if self.animationText.endAnimationFlag == true {
+                            self.replayBTN.isEnabled = true
+                            self.randomBTN.isEnabled = true
+                            self.exportBTN.isEnabled = true
+                        }
+                        
                         if !completed {
                             // User canceled
                             print("キャンセルされました")
