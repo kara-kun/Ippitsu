@@ -56,6 +56,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         //フォントタイプを取得したフォント配列の最初の要素に設定しておく。
         fontType = fontArray[0]
         print(fontType)
+        inputFontTextField.text = fontType
         
         //-------------firstTextLabelの初期化------------
             //print(imageView.frame)
