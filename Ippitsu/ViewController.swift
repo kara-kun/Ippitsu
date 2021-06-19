@@ -69,7 +69,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         firstTextLabel.layer.borderColor = CGColor(gray: 0.2, alpha: 1.0)
         firstTextLabel.layer.borderWidth = 1.0
         firstTextLabel.font = UIFont(name:fontType, size: CGFloat(fontSize))
-        firstTextLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+        firstTextLabel.lineBreakMode = NSLineBreakMode.byTruncatingMiddle
         firstTextLabel.adjustsFontSizeToFitWidth = false
         firstTextLabel.text = ""
         //firstTextLabel.layer.position = CGPoint(x: self.imageView.frame.width/2, y: self.imageView.frame.height/2)
