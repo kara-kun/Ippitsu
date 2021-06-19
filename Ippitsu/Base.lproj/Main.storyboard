@@ -202,22 +202,6 @@
                                     <constraint firstAttribute="width" secondItem="JHy-3f-Eif" secondAttribute="height" multiplier="1:1" id="XTz-xj-gGX"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HfL-0I-piF">
-                                <rect key="frame" x="113" y="355" width="149" height="40"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title="REPLAY" backgroundImage="customBTN-2"/>
-                                <connections>
-                                    <action selector="replay:" destination="dzV-Ix-fkW" eventType="touchUpInside" id="KDl-wS-tRa"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fIK-Xw-7Ox">
-                                <rect key="frame" x="113" y="420" width="149" height="40"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title="RANDOMIZE" backgroundImage="customBTN-2"/>
-                                <connections>
-                                    <action selector="btnRandomize:" destination="dzV-Ix-fkW" eventType="touchUpInside" id="NAr-B4-Xhl"/>
-                                </connections>
-                            </button>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TAF-K1-cJZ">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
@@ -228,91 +212,92 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVX-SH-bdi">
-                                <rect key="frame" x="113" y="485" width="149" height="40"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title="EXPORT" backgroundImage="customBTN-2"/>
-                                <connections>
-                                    <action selector="export:" destination="dzV-Ix-fkW" eventType="touchUpInside" id="EQ3-0n-s3n"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="043-pT-RsF">
-                                <rect key="frame" x="40" y="545" width="295" height="54"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="REPLAY">
-                                        <attributes>
-                                            <color key="NSColor" red="0.25112081247517493" green="0.18491255152687708" blue="0.3310508342704388" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <font key="NSFont" metaFont="system" size="15"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="···">
-                                        <attributes>
-                                            <color key="NSColor" red="0.25112081247517493" green="0.18491255152687708" blue="0.3310508342704388" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <font key="NSFont" size="15" name=".HiraKakuInterface-W3"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Playback the animation.RANDOMIZE</string>
-                                        <attributes>
-                                            <color key="NSColor" red="0.25112081247517493" green="0.18491255152687708" blue="0.3310508342704388" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <font key="NSFont" metaFont="system" size="15"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="···">
-                                        <attributes>
-                                            <color key="NSColor" red="0.25112081247517493" green="0.18491255152687708" blue="0.3310508342704388" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <font key="NSFont" size="15" name=".HiraKakuInterface-W3"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Change the animation. EXPORT</string>
-                                        <attributes>
-                                            <color key="NSColor" red="0.25112081247517493" green="0.18491255152687708" blue="0.3310508342704388" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <font key="NSFont" metaFont="system" size="15"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="···">
-                                        <attributes>
-                                            <color key="NSColor" red="0.25112081247517493" green="0.18491255152687708" blue="0.3310508342704388" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <font key="NSFont" size="15" name=".HiraKakuInterface-W3"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="Share or Save.">
-                                        <attributes>
-                                            <color key="NSColor" red="0.25112081247517493" green="0.18491255152687708" blue="0.3310508342704388" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <font key="NSFont" metaFont="system" size="15"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YdX-0i-CcD">
+                                <rect key="frame" x="0.0" y="315" width="375" height="308"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WsP-Nv-TMa" userLabel="ContentsView">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="350"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fIK-Xw-7Ox">
+                                                <rect key="frame" x="113" y="100" width="149" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <state key="normal" title="RANDOMIZE" backgroundImage="customBTN-2"/>
+                                                <connections>
+                                                    <action selector="btnRandomize:" destination="dzV-Ix-fkW" eventType="touchUpInside" id="NAr-B4-Xhl"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVX-SH-bdi">
+                                                <rect key="frame" x="113" y="165" width="149" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <state key="normal" title="EXPORT" backgroundImage="customBTN-2"/>
+                                                <connections>
+                                                    <action selector="export:" destination="dzV-Ix-fkW" eventType="touchUpInside" id="EQ3-0n-s3n"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="043-pT-RsF" userLabel="Instruction Label">
+                                                <rect key="frame" x="58.5" y="230" width="258" height="54"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment>
+                                                        <string key="content">REPLAY···Playback the animation.
+RANDOMIZE···Change the animation. 
+EXPORT···Share or Save.</string>
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.25112081247517493" green="0.18491255152687708" blue="0.3310508342704388" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <font key="NSFont" metaFont="system" size="15"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HfL-0I-piF">
+                                                <rect key="frame" x="113" y="35" width="149" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <state key="normal" title="REPLAY" backgroundImage="customBTN-2"/>
+                                                <connections>
+                                                    <action selector="replay:" destination="dzV-Ix-fkW" eventType="touchUpInside" id="KDl-wS-tRa"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.7803921568627451" green="0.74901960784313726" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstItem="HfL-0I-piF" firstAttribute="top" secondItem="WsP-Nv-TMa" secondAttribute="top" constant="35" id="5eF-rL-Lgp"/>
+                                            <constraint firstItem="qVX-SH-bdi" firstAttribute="top" secondItem="fIK-Xw-7Ox" secondAttribute="bottom" constant="25" id="QYh-zA-2EK"/>
+                                            <constraint firstAttribute="height" constant="350" id="aBE-0x-L3H"/>
+                                            <constraint firstItem="043-pT-RsF" firstAttribute="centerX" secondItem="WsP-Nv-TMa" secondAttribute="centerX" id="dcg-Kj-Mtr"/>
+                                            <constraint firstItem="043-pT-RsF" firstAttribute="top" secondItem="qVX-SH-bdi" secondAttribute="bottom" constant="25" id="gnI-Sf-YAF"/>
+                                            <constraint firstItem="HfL-0I-piF" firstAttribute="centerX" secondItem="WsP-Nv-TMa" secondAttribute="centerX" id="hD5-dw-JFd"/>
+                                            <constraint firstItem="qVX-SH-bdi" firstAttribute="centerX" secondItem="WsP-Nv-TMa" secondAttribute="centerX" id="jUr-lN-v2V"/>
+                                            <constraint firstItem="fIK-Xw-7Ox" firstAttribute="top" secondItem="HfL-0I-piF" secondAttribute="bottom" constant="25" id="sF8-GW-QQs"/>
+                                            <constraint firstItem="fIK-Xw-7Ox" firstAttribute="centerX" secondItem="WsP-Nv-TMa" secondAttribute="centerX" id="zuD-pt-Itn"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="WsP-Nv-TMa" firstAttribute="centerX" secondItem="YdX-0i-CcD" secondAttribute="centerX" id="K29-uJ-7zh"/>
+                                    <constraint firstItem="WsP-Nv-TMa" firstAttribute="leading" secondItem="f0g-CE-RFh" secondAttribute="leading" id="Kaf-lr-qgv"/>
+                                    <constraint firstItem="WsP-Nv-TMa" firstAttribute="trailing" secondItem="f0g-CE-RFh" secondAttribute="trailing" id="QZd-Fo-bPc"/>
+                                    <constraint firstAttribute="trailing" secondItem="WsP-Nv-TMa" secondAttribute="trailing" id="eA9-Ic-WGj"/>
+                                    <constraint firstAttribute="bottom" secondItem="WsP-Nv-TMa" secondAttribute="bottom" id="nBg-Ll-7py"/>
+                                    <constraint firstItem="WsP-Nv-TMa" firstAttribute="top" secondItem="YdX-0i-CcD" secondAttribute="top" id="tTd-lf-Ahi"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="wG8-iQ-7vQ"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="f0g-CE-RFh"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hmc-BY-lJO"/>
-                        <color key="backgroundColor" red="0.77647058823529413" green="0.75294117647058822" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.7803921568627451" green="0.74901960784313726" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="HfL-0I-piF" firstAttribute="centerX" secondItem="LJg-UJ-0vF" secondAttribute="centerX" id="2ea-ew-8yp"/>
-                            <constraint firstItem="043-pT-RsF" firstAttribute="top" secondItem="qVX-SH-bdi" secondAttribute="bottom" constant="20" id="4mV-lc-PsS"/>
-                            <constraint firstItem="HfL-0I-piF" firstAttribute="top" secondItem="JHy-3f-Eif" secondAttribute="bottom" constant="40" id="LYD-s6-wK3"/>
-                            <constraint firstItem="043-pT-RsF" firstAttribute="leading" secondItem="hmc-BY-lJO" secondAttribute="leading" constant="40" id="M8o-nf-hab"/>
-                            <constraint firstItem="qVX-SH-bdi" firstAttribute="centerX" secondItem="LJg-UJ-0vF" secondAttribute="centerX" id="MJL-Yw-jk5"/>
+                            <constraint firstItem="YdX-0i-CcD" firstAttribute="trailing" secondItem="hmc-BY-lJO" secondAttribute="trailing" id="8dp-9V-E0W"/>
                             <constraint firstItem="JHy-3f-Eif" firstAttribute="centerX" secondItem="LJg-UJ-0vF" secondAttribute="centerX" id="NMd-k0-NmZ"/>
-                            <constraint firstItem="hmc-BY-lJO" firstAttribute="trailing" secondItem="043-pT-RsF" secondAttribute="trailing" constant="40" id="OO1-TF-rie"/>
                             <constraint firstItem="TAF-K1-cJZ" firstAttribute="centerX" secondItem="JHy-3f-Eif" secondAttribute="centerX" id="Qzi-2B-8v8"/>
                             <constraint firstItem="hmc-BY-lJO" firstAttribute="bottom" secondItem="TAF-K1-cJZ" secondAttribute="bottom" id="R3R-ig-skZ"/>
-                            <constraint firstItem="qVX-SH-bdi" firstAttribute="top" secondItem="fIK-Xw-7Ox" secondAttribute="bottom" constant="25" id="dcS-9B-Cwg"/>
-                            <constraint firstItem="fIK-Xw-7Ox" firstAttribute="top" secondItem="HfL-0I-piF" secondAttribute="bottom" constant="25" id="jH3-wa-pwr"/>
+                            <constraint firstItem="YdX-0i-CcD" firstAttribute="leading" secondItem="hmc-BY-lJO" secondAttribute="leading" id="ZcK-Vl-nYJ"/>
+                            <constraint firstItem="YdX-0i-CcD" firstAttribute="top" secondItem="JHy-3f-Eif" secondAttribute="bottom" id="jjY-xa-W1g"/>
                             <constraint firstItem="JHy-3f-Eif" firstAttribute="top" secondItem="hmc-BY-lJO" secondAttribute="top" constant="20" id="mvZ-UI-X0E"/>
+                            <constraint firstItem="TAF-K1-cJZ" firstAttribute="top" secondItem="YdX-0i-CcD" secondAttribute="bottom" id="pd5-aY-Fnc"/>
                             <constraint firstItem="TAF-K1-cJZ" firstAttribute="leading" secondItem="hmc-BY-lJO" secondAttribute="leading" id="qy2-52-aTb"/>
                             <constraint firstItem="JHy-3f-Eif" firstAttribute="leading" secondItem="hmc-BY-lJO" secondAttribute="leading" constant="40" id="v75-XF-jjW"/>
-                            <constraint firstItem="fIK-Xw-7Ox" firstAttribute="centerX" secondItem="LJg-UJ-0vF" secondAttribute="centerX" id="wUA-I3-0F1"/>
-                            <constraint firstItem="043-pT-RsF" firstAttribute="centerX" secondItem="LJg-UJ-0vF" secondAttribute="centerX" id="xMI-ub-290"/>
                             <constraint firstItem="hmc-BY-lJO" firstAttribute="trailing" secondItem="JHy-3f-Eif" secondAttribute="trailing" constant="40" id="yDj-Gv-fUZ"/>
                         </constraints>
                     </view>
@@ -327,7 +312,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gtf-Dm-z34" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="vcM-Fd-pGu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="938.39999999999998" y="92.203898050974516"/>
+            <point key="canvasLocation" x="937.5" y="91.901408450704224"/>
         </scene>
     </scenes>
     <resources>

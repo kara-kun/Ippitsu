@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
@@ -172,11 +173,13 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         //必要な項目（firstTextLabel.text）が入力されていることを確認する。
         guard firstTextLabel.text != nil else {
             print("文字が入力されていません")
+            SVProgressHUD.showError(withStatus: "Input Your Word.")
             return false
         }
         //firstTextLabelがから文字でないことを確認
         if firstTextLabel.text! == "" || firstTextLabel.text!.isEmpty == true{
             print("文字が空文字です")
+            SVProgressHUD.showError(withStatus: "Input Your Word.")
             return false
         }
         //trueを返したときだけ画面遷移する

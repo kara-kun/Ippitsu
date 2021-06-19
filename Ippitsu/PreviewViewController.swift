@@ -182,11 +182,16 @@ class PreviewViewController: UIViewController, RecViewAnimationDelegate {
         let startRecord = recorder.startRecording(view: imageView, fpsSetting: 30)
         //正常に録画が開始されたら
         if startRecord == true {
+            //SVProgressHUDを表示
+            SVProgressHUD.show(withStatus: "Exporting...")
             //文字列が表示されない状態で0.5秒間待つ
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 //replayTextAnimationのアニメーションを実行
                 self.animationText.replayAnimate()
             }
+        } else {
+            SVProgressHUD.showError(withStatus: "Export Failed.")
+            return
         }
 
         //5秒で録画を停止する。
@@ -194,6 +199,8 @@ class PreviewViewController: UIViewController, RecViewAnimationDelegate {
             let stopRecording = recorder.stopRecording()
             //正常に録画が終了していたら
             if stopRecording == true {
+                //SVProgressHUDを消す
+                SVProgressHUD.dismiss()
                 //保存された動画を処理するActivityViewControllerを立ち上げる
                 if let fileURL = recorder.destinationURL {
                     let controller = UIActivityViewController(activityItems: [fileURL], applicationActivities: nil)
