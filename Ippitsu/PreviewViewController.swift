@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import AVFoundation
+import SVProgressHUD
 
 class PreviewViewController: UIViewController, RecViewAnimationDelegate {
     //ViewControllerからSegueで受け取るパラメーターの初期化

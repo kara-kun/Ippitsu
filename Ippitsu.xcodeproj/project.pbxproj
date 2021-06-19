@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6542D515DBF864BA2D344C96 /* Pods_Ippitsu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF73B157121FF27FDAF9BAE1 /* Pods_Ippitsu.framework */; };
 		C646AB422663908F0012FDDD /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646AB412663908F0012FDDD /* PreviewViewController.swift */; };
 		C68033062667549700A19513 /* TextAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68033052667549700A19513 /* TextAnimation.swift */; };
 		C686B1A92669124900B6A9F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C686B1A72669124900B6A9F9 /* LaunchScreen.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		42C1AA7310F901246B7A2DBB /* Pods-Ippitsu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ippitsu.release.xcconfig"; path = "Target Support Files/Pods-Ippitsu/Pods-Ippitsu.release.xcconfig"; sourceTree = "<group>"; };
 		C646AB412663908F0012FDDD /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		C68033052667549700A19513 /* TextAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnimation.swift; sourceTree = "<group>"; };
 		C686B1A82669124900B6A9F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -30,6 +32,8 @@
 		C6A56C8D26607497004A4C72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6A56C9226607497004A4C72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6CFF56B2670F4E90065C9A9 /* RecordingViewAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingViewAnimation.swift; sourceTree = "<group>"; };
+		C9760DE28965A23CF591AAAF /* Pods-Ippitsu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ippitsu.debug.xcconfig"; path = "Target Support Files/Pods-Ippitsu/Pods-Ippitsu.debug.xcconfig"; sourceTree = "<group>"; };
+		FF73B157121FF27FDAF9BAE1 /* Pods_Ippitsu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ippitsu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,17 +41,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6542D515DBF864BA2D344C96 /* Pods_Ippitsu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE9962114DB4FA816819973C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FF73B157121FF27FDAF9BAE1 /* Pods_Ippitsu.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C6A56C7826607496004A4C72 = {
 			isa = PBXGroup;
 			children = (
 				C6A56C8326607496004A4C72 /* Ippitsu */,
 				C6A56C8226607496004A4C72 /* Products */,
+				E47A7DAF82ADB4CC57BA5817 /* Pods */,
+				BE9962114DB4FA816819973C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,6 +91,16 @@
 			path = Ippitsu;
 			sourceTree = "<group>";
 		};
+		E47A7DAF82ADB4CC57BA5817 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C9760DE28965A23CF591AAAF /* Pods-Ippitsu.debug.xcconfig */,
+				42C1AA7310F901246B7A2DBB /* Pods-Ippitsu.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -83,9 +108,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C6A56C9526607497004A4C72 /* Build configuration list for PBXNativeTarget "Ippitsu" */;
 			buildPhases = (
+				34AFE2341D4F0B422650B4ED /* [CP] Check Pods Manifest.lock */,
 				C6A56C7D26607496004A4C72 /* Sources */,
 				C6A56C7E26607496004A4C72 /* Frameworks */,
 				C6A56C7F26607496004A4C72 /* Resources */,
+				3B186E3B762E755B2E06D143 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -140,6 +167,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		34AFE2341D4F0B422650B4ED /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Ippitsu-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3B186E3B762E755B2E06D143 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Ippitsu/Pods-Ippitsu-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Ippitsu/Pods-Ippitsu-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Ippitsu/Pods-Ippitsu-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C6A56C7D26607496004A4C72 /* Sources */ = {
@@ -295,6 +364,7 @@
 		};
 		C6A56C9626607497004A4C72 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9760DE28965A23CF591AAAF /* Pods-Ippitsu.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -314,6 +384,7 @@
 		};
 		C6A56C9726607497004A4C72 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42C1AA7310F901246B7A2DBB /* Pods-Ippitsu.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
