@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     @IBOutlet weak var inputFontTextField: UITextField!
     @IBOutlet weak var fontSlider: UISlider!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     //-------------firstTextLabelの初期化------------
     let firstTextLabel = UILabel()
@@ -101,6 +102,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         self.inputFontTextField.inputView = pickerView
         //同様にフォント入力欄の入力インターフェースpickerViewに、アクセサリーとしてtoolBarを追加
         self.inputFontTextField.inputAccessoryView = toolbar
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        //スクロース位置をトップに戻す
+        scrollView.scrollBackToTop()
     }
 
     //----------inputFirstTextにテキスト入力されたときの処理--------

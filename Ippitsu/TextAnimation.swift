@@ -444,3 +444,11 @@ extension Array {
     }
 }
 
+//ScrollViewを元の位置に戻すエクステンション
+extension UIScrollView {
+    public func scrollBackToTop() {
+        let offset: CGPoint  = CGPoint(x: contentOffset.x, y: -contentInset.top)
+        setContentOffset(offset, animated: false)
+    }
+}
+
