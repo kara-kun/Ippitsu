@@ -3,7 +3,7 @@
 "043-pT-RsF.text" = "再生···アニメーションを確認します。\nやり直し···色とアニメーションを変更します。\n書き出し···共有/保存";
 
 /* Class = "UILabel"; text = "Keep Your Word Inside The Border."; ObjectID = "5pL-aa-Qsu"; */
-"5pL-aa-Qsu.text" = "枠の中に文字を収めてください。";
+"5pL-aa-Qsu.text" = "枠の中に文字を収めて下さい。";
 
 /* Class = "UIButton"; normalTitle = "CREATE"; ObjectID = "6Bh-1I-mfd"; */
 "6Bh-1I-mfd.normalTitle" = "作 成";
@@ -12,19 +12,19 @@
 "HfL-0I-piF.normalTitle" = "再 生";
 
 /* Class = "UILabel"; text = "1: Write Your Word."; ObjectID = "OX4-Pe-QsE"; */
-"OX4-Pe-QsE.text" = "1: 文字を入力してください。";
+"OX4-Pe-QsE.text" = "1: 好きな言葉を入れて下さい。";
 
 /* Class = "UILabel"; text = "2. Choose Favorite Font."; ObjectID = "S89-xq-jkB"; */
-"S89-xq-jkB.text" = "2. フォントを選んでください。";
+"S89-xq-jkB.text" = "2. フォントを選んで下さい。";
 
 /* Class = "UIButton"; normalTitle = "RANDOMIZE"; ObjectID = "fIK-Xw-7Ox"; */
 "fIK-Xw-7Ox.normalTitle" = "やり直し";
 
 /* Class = "UILabel"; text = "3: Adjust Text Size."; ObjectID = "kow-ES-2C2"; */
-"kow-ES-2C2.text" = "3: 大きさを調整してください。";
+"kow-ES-2C2.text" = "3: 大きさを調整して下さい。";
 
 /* Class = "UIButton"; normalTitle = "EXPORT"; ObjectID = "qVX-SH-bdi"; */
 "qVX-SH-bdi.normalTitle" = "書き出し";
 
 /* Class = "UITextField"; placeholder = "Touch here."; ObjectID = "ynw-nA-WmL"; */
-"ynw-nA-WmL.placeholder" = "ここをタップしてください";
+"ynw-nA-WmL.placeholder" = "ここをタップして下さい";
