@@ -507,8 +507,8 @@ fileprivate extension UIImage {
         let originalHeight = self.size.height
         
         //2. 切り抜き後のUIImageのサイズ(縦横4ピクセルづつ足してます。そうしないと左と上に変なノイズが乗るので・・・)
-        let croppedWidth = croppedSize.width + 4
-        let croppedHeight = croppedSize.height + 4
+        let croppedWidth = croppedSize.width + 6
+        let croppedHeight = croppedSize.height + 6
         
         //3. 1と2より切り抜くRectを求める
         let croppedRect = CGRect(x: (originalWidth - croppedWidth) / 2,

@@ -14,6 +14,10 @@ class PreviewViewController: UIViewController, RecViewAnimationDelegate {
     var fontSize: Double = 18
     var fontType: String = ""
     
+    //HUDの表示
+    var statusHUD = NSLocalizedString("Exporting...", comment: "")
+    var failourHUD = NSLocalizedString("Export failed.", comment: "")
+    
     //ImageView接続
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var replayBTN: UIButton!
@@ -183,14 +187,14 @@ class PreviewViewController: UIViewController, RecViewAnimationDelegate {
         //正常に録画が開始されたら
         if startRecord == true {
             //SVProgressHUDを表示
-            SVProgressHUD.show(withStatus: "Exporting...")
+            SVProgressHUD.show(withStatus: statusHUD)
             //文字列が表示されない状態で0.5秒間待つ
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 //replayTextAnimationのアニメーションを実行
                 self.animationText.replayAnimate()
             }
         } else {
-            SVProgressHUD.showError(withStatus: "Export Failed.")
+            SVProgressHUD.showError(withStatus: failourHUD)
             return
         }
 

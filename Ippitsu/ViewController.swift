@@ -30,6 +30,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     var pickerView = UIPickerView()
     //注意書き
     var notificationLabel = UILabel()
+    //HUD用の警告文
+    var alert = NSLocalizedString("Input Your Word.", comment: "")
     
     //---------遷移先PreviewViewControllerから呼ばれるメソッド--------
     @IBAction func backToInputText(_ segue: UIStoryboardSegue) {
@@ -86,7 +88,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         notificationLabel.textColor = UIColor.black
         notificationLabel.numberOfLines = 1
         notificationLabel.font = UIFont(name: "Helvetica", size: CGFloat(14.0))
-        notificationLabel.text = "Your Word Will Appear Here."
+        //notificationLabel.text = "Your Word Will Appear Here."
+        notificationLabel.text = NSLocalizedString("Your Word Will Appear Here.", comment: "")
         notificationLabel.frame = CGRect(x: imageView.frame.width/2 - (imageView.frame.width / 1.25)/2, y: imageView.frame.height/2 - 10.0 , width: imageView.frame.width / 1.25, height:20)
         imageView.addSubview(notificationLabel)
         
@@ -118,7 +121,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
                 notificationLabel.text = ""
             } else {
                 //notificationLabelの文字はそのまま
-                notificationLabel.text = "Your Word Will Appear Here."
+                //notificationLabel.text = "Your Word Will Appear Here."
+                notificationLabel.text = NSLocalizedString("Your Word Will Appear Here.", comment: "")
             }
             //firstTextLabelに、inputFirstTextに入力されたテキストを表示
             firstTextLabel.text = input
@@ -180,13 +184,13 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         //必要な項目（firstTextLabel.text）が入力されていることを確認する。
         guard firstTextLabel.text != nil else {
             print("文字が入力されていません")
-            SVProgressHUD.showError(withStatus: "Input Your Word.")
+            SVProgressHUD.showError(withStatus: alert)
             return false
         }
         //firstTextLabelがから文字でないことを確認
         if firstTextLabel.text! == "" || firstTextLabel.text!.isEmpty == true{
             print("文字が空文字です")
-            SVProgressHUD.showError(withStatus: "Input Your Word.")
+            SVProgressHUD.showError(withStatus: alert)
             return false
         }
         //trueを返したときだけ画面遷移する

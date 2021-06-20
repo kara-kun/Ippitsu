@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  Ippitsu
+
+  Created by 唐津 哲也 on 2021/06/20.
+  
+*/
+
+"Your Word Will Appear Here." = "入力内容が表示されます";
+
+"Input Your Word." = "文字を入力してください";
+
+"Exporting..." = "動画書き出し中";
+
+"Export failed." = "書き出しできませんでした";
