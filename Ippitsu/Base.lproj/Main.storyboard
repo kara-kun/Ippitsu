@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
@@ -13,24 +13,24 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Ippitsu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8ZJ-IM-r6h">
-                                <rect key="frame" x="40" y="20" width="240" height="240"/>
+                                <rect key="frame" x="40" y="64" width="334" height="334"/>
                                 <color key="backgroundColor" red="0.65964976230000005" green="0.65583675789999996" blue="0.66346276670000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="8ZJ-IM-r6h" secondAttribute="height" multiplier="1:1" id="px0-dG-Vgt"/>
                                 </constraints>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5fq-xb-p3a">
-                                <rect key="frame" x="0.0" y="260" width="320" height="308"/>
+                                <rect key="frame" x="0.0" y="398" width="414" height="464"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DBo-Qx-K5K" userLabel="ContentsView">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="350"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="hbK-Ez-UQt">
-                                                <rect key="frame" x="40" y="40" width="240" height="45"/>
+                                                <rect key="frame" x="40" y="40" width="334" height="45"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="O1e-pa-D0o"/>
@@ -43,7 +43,7 @@
                                                 </connections>
                                             </textField>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="yhN-5Z-l4S">
-                                                <rect key="frame" x="58" y="195" width="204" height="26"/>
+                                                <rect key="frame" x="105" y="195" width="204" height="26"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="200" id="6by-80-b7X"/>
                                                     <constraint firstAttribute="height" constant="25" id="WN3-ez-EyO"/>
@@ -53,7 +53,7 @@
                                                 </connections>
                                             </slider>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Touch here." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ynw-nA-WmL">
-                                                <rect key="frame" x="40" y="125" width="240" height="30"/>
+                                                <rect key="frame" x="40" y="125" width="334" height="30"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="NPx-vx-Ap8"/>
@@ -69,7 +69,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Bh-1I-mfd">
-                                                <rect key="frame" x="85.5" y="265" width="149" height="40"/>
+                                                <rect key="frame" x="132.5" y="265" width="149" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="CREATE" backgroundImage="customBTN-2"/>
                                                 <connections>
@@ -89,7 +89,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keep Your Word Inside The Border." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pL-aa-Qsu">
-                                                <rect key="frame" x="33.5" y="225" width="253" height="19.5"/>
+                                                <rect key="frame" x="80.5" y="225" width="253" height="19.5"/>
                                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
                                                 <color key="textColor" red="0.51372549019607838" green="0.51372549019607838" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -164,18 +164,18 @@
             <objects>
                 <viewController id="dzV-Ix-fkW" customClass="PreviewViewController" customModule="Ippitsu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LJg-UJ-0vF">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JHy-3f-Eif">
-                                <rect key="frame" x="40" y="20" width="240" height="240"/>
+                                <rect key="frame" x="40" y="64" width="334" height="334"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="JHy-3f-Eif" secondAttribute="height" multiplier="1:1" id="H5q-Wp-odN"/>
                                     <constraint firstAttribute="width" secondItem="JHy-3f-Eif" secondAttribute="height" multiplier="1:1" id="XTz-xj-gGX"/>
                                 </constraints>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TAF-K1-cJZ">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="rewind" id="4Oe-Qv-lyb">
                                         <connections>
@@ -185,13 +185,13 @@
                                 </items>
                             </toolbar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YdX-0i-CcD">
-                                <rect key="frame" x="0.0" y="260" width="320" height="264"/>
+                                <rect key="frame" x="0.0" y="398" width="414" height="420"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WsP-Nv-TMa" userLabel="ContentsView">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="350"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fIK-Xw-7Ox">
-                                                <rect key="frame" x="85.5" y="100" width="149" height="40"/>
+                                                <rect key="frame" x="132.5" y="100" width="149" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="RANDOMIZE" backgroundImage="customBTN-2"/>
                                                 <connections>
@@ -199,7 +199,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVX-SH-bdi">
-                                                <rect key="frame" x="85.5" y="165" width="149" height="40"/>
+                                                <rect key="frame" x="132.5" y="165" width="149" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="EXPORT" backgroundImage="customBTN-2"/>
                                                 <connections>
@@ -207,7 +207,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="043-pT-RsF" userLabel="Instruction Label">
-                                                <rect key="frame" x="31" y="230" width="258" height="54"/>
+                                                <rect key="frame" x="78" y="230" width="258" height="54"/>
                                                 <string key="text">REPLAY···Playback the animation.
 RANDOMIZE···Change the animation. 
 EXPORT···Share or Save.</string>
@@ -216,7 +216,7 @@ EXPORT···Share or Save.</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HfL-0I-piF">
-                                                <rect key="frame" x="85.5" y="35" width="149" height="40"/>
+                                                <rect key="frame" x="132.5" y="35" width="149" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="REPLAY" backgroundImage="customBTN-2"/>
                                                 <connections>
