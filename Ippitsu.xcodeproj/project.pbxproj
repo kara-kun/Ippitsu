@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6542D515DBF864BA2D344C96 /* Pods_Ippitsu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF73B157121FF27FDAF9BAE1 /* Pods_Ippitsu.framework */; };
 		C6081BF8267F39D200E50328 /* infoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C6081BFA267F39D200E50328 /* infoPlist.strings */; };
+		C6269DB02699821600C9D569 /* CustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6269DAF2699821600C9D569 /* CustomView.xib */; };
+		C6269DB3269982C400C9D569 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6269DB2269982C400C9D569 /* CustomView.swift */; };
 		C646AB422663908F0012FDDD /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C646AB412663908F0012FDDD /* PreviewViewController.swift */; };
 		C68033062667549700A19513 /* TextAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68033052667549700A19513 /* TextAnimation.swift */; };
 		C686B1A92669124900B6A9F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C686B1A72669124900B6A9F9 /* LaunchScreen.storyboard */; };
@@ -25,6 +27,8 @@
 		42C1AA7310F901246B7A2DBB /* Pods-Ippitsu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ippitsu.release.xcconfig"; path = "Target Support Files/Pods-Ippitsu/Pods-Ippitsu.release.xcconfig"; sourceTree = "<group>"; };
 		C6081BF9267F39D200E50328 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/infoPlist.strings; sourceTree = "<group>"; };
 		C6081C02267F545400E50328 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		C6269DAF2699821600C9D569 /* CustomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomView.xib; sourceTree = "<group>"; };
+		C6269DB2269982C400C9D569 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		C646AB412663908F0012FDDD /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		C68033052667549700A19513 /* TextAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnimation.swift; sourceTree = "<group>"; };
 		C686B1A82669124900B6A9F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -94,6 +98,8 @@
 				C686B1A72669124900B6A9F9 /* LaunchScreen.storyboard */,
 				C68033052667549700A19513 /* TextAnimation.swift */,
 				C6CFF56B2670F4E90065C9A9 /* RecordingViewAnimation.swift */,
+				C6269DAF2699821600C9D569 /* CustomView.xib */,
+				C6269DB2269982C400C9D569 /* CustomView.swift */,
 			);
 			path = Ippitsu;
 			sourceTree = "<group>";
@@ -172,6 +178,7 @@
 				C6081BF8267F39D200E50328 /* infoPlist.strings in Resources */,
 				C6A56C8E26607497004A4C72 /* Assets.xcassets in Resources */,
 				C6A56C8C26607496004A4C72 /* Main.storyboard in Resources */,
+				C6269DB02699821600C9D569 /* CustomView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +234,7 @@
 				C6A56C8926607496004A4C72 /* ViewController.swift in Sources */,
 				C6CFF56C2670F4E90065C9A9 /* RecordingViewAnimation.swift in Sources */,
 				C6A56C8526607496004A4C72 /* AppDelegate.swift in Sources */,
+				C6269DB3269982C400C9D569 /* CustomView.swift in Sources */,
 				C6A56C8726607496004A4C72 /* SceneDelegate.swift in Sources */,
 				C68033062667549700A19513 /* TextAnimation.swift in Sources */,
 				C646AB422663908F0012FDDD /* PreviewViewController.swift in Sources */,
@@ -403,6 +411,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.kara-kun.Ippitsu";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -423,6 +432,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.kara-kun.Ippitsu";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

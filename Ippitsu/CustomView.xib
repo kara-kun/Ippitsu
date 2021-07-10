@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CustomView" customModule="Ippitsu" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="350" height="350"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y0P-aQ-Rev">
+                    <rect key="frame" x="0.0" y="0.0" width="350" height="350"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="Y0P-aQ-Rev" secondAttribute="height" multiplier="1:1" id="Hqw-rQ-mJB"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="121-Ap-lsd"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="IFE-Br-YiO"/>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Y0P-aQ-Rev" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="2Yp-0V-7aL"/>
+                <constraint firstItem="Y0P-aQ-Rev" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="TUw-dB-7By"/>
+                <constraint firstItem="Y0P-aQ-Rev" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="W3K-0t-oAu"/>
+                <constraint firstItem="Y0P-aQ-Rev" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="bHa-3G-Yp2"/>
+                <constraint firstItem="Y0P-aQ-Rev" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="dxx-JK-ynC"/>
+                <constraint firstItem="Y0P-aQ-Rev" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="hOQ-8t-EFr"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="imageScrollView" destination="Y0P-aQ-Rev" id="1vM-gk-J9k"/>
+            </connections>
+            <point key="canvasLocation" x="68.115942028985515" y="-72.991071428571431"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

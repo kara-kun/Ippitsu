@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
@@ -63,13 +63,13 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1: Write Your Word." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OX4-Pe-QsE">
-                                                <rect key="frame" x="40" y="15" width="155.5" height="21"/>
+                                                <rect key="frame" x="40" y="15" width="155.66666666666666" height="21"/>
                                                 <fontDescription key="fontDescription" name="SFCompact-Regular" family="SF Compact" pointSize="18"/>
                                                 <color key="textColor" red="0.51372549019607838" green="0.51372549019607838" blue="0.51372549019607838" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Bh-1I-mfd">
-                                                <rect key="frame" x="132.5" y="265" width="149" height="40"/>
+                                                <rect key="frame" x="132.66666666666666" y="265" width="148.99999999999997" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="CREATE" backgroundImage="customBTN-2"/>
                                                 <connections>
@@ -77,7 +77,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. Choose Favorite Font." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S89-xq-jkB">
-                                                <rect key="frame" x="40" y="100" width="198.5" height="21"/>
+                                                <rect key="frame" x="39.999999999999986" y="100" width="198.66666666666663" height="21"/>
                                                 <fontDescription key="fontDescription" name="SFCompact-Regular" family="SF Compact" pointSize="18"/>
                                                 <color key="textColor" red="0.51372549019607838" green="0.51372549019607838" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -89,7 +89,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keep Your Word Inside The Border." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pL-aa-Qsu">
-                                                <rect key="frame" x="80.5" y="225" width="253" height="19.5"/>
+                                                <rect key="frame" x="80.666666666666686" y="225" width="253" height="19.666666666666657"/>
                                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
                                                 <color key="textColor" red="0.51372549019607838" green="0.51372549019607838" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -175,7 +175,7 @@
                                 </constraints>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TAF-K1-cJZ">
-                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <items>
                                     <barButtonItem systemItem="rewind" id="4Oe-Qv-lyb">
                                         <connections>
@@ -185,13 +185,13 @@
                                 </items>
                             </toolbar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YdX-0i-CcD">
-                                <rect key="frame" x="0.0" y="398" width="414" height="420"/>
+                                <rect key="frame" x="0.0" y="398" width="414" height="415"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WsP-Nv-TMa" userLabel="ContentsView">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fIK-Xw-7Ox">
-                                                <rect key="frame" x="132.5" y="100" width="149" height="40"/>
+                                                <rect key="frame" x="132.66666666666666" y="100" width="148.99999999999997" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="RANDOMIZE" backgroundImage="customBTN-2"/>
                                                 <connections>
@@ -199,7 +199,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVX-SH-bdi">
-                                                <rect key="frame" x="132.5" y="165" width="149" height="40"/>
+                                                <rect key="frame" x="132.66666666666666" y="165" width="148.99999999999997" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="EXPORT" backgroundImage="customBTN-2"/>
                                                 <connections>
@@ -216,7 +216,7 @@ EXPORT···Share or Save.</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HfL-0I-piF">
-                                                <rect key="frame" x="132.5" y="35" width="149" height="40"/>
+                                                <rect key="frame" x="132.66666666666666" y="35" width="148.99999999999997" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="REPLAY" backgroundImage="customBTN-2"/>
                                                 <connections>
@@ -280,6 +280,6 @@ EXPORT···Share or Save.</string>
         </scene>
     </scenes>
     <resources>
-        <image name="customBTN-2" width="148.5" height="40"/>
+        <image name="customBTN-2" width="148.66667175292969" height="40"/>
     </resources>
 </document>
