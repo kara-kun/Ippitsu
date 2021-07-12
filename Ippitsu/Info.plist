@@ -62,5 +62,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Ippitsu Would like to Access Your Photo Library. </string>
+	<key>NSCameraUsageDescription</key>
+	<string>Ippitsu Would like to Access Your Camera. </string>
 </dict>
 </plist>

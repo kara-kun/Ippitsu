@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,18 +17,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8ZJ-IM-r6h">
-                                <rect key="frame" x="40" y="64" width="334" height="334"/>
-                                <color key="backgroundColor" red="0.65964976230000005" green="0.65583675789999996" blue="0.66346276670000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="8ZJ-IM-r6h" secondAttribute="height" multiplier="1:1" id="px0-dG-Vgt"/>
-                                </constraints>
-                            </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5fq-xb-p3a">
                                 <rect key="frame" x="0.0" y="398" width="414" height="464"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DBo-Qx-K5K" userLabel="ContentsView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="hbK-Ez-UQt">
                                                 <rect key="frame" x="40" y="40" width="334" height="45"/>
@@ -63,13 +57,13 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1: Write Your Word." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OX4-Pe-QsE">
-                                                <rect key="frame" x="40" y="15" width="155.66666666666666" height="21"/>
+                                                <rect key="frame" x="40" y="15" width="155.5" height="21"/>
                                                 <fontDescription key="fontDescription" name="SFCompact-Regular" family="SF Compact" pointSize="18"/>
                                                 <color key="textColor" red="0.51372549019607838" green="0.51372549019607838" blue="0.51372549019607838" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Bh-1I-mfd">
-                                                <rect key="frame" x="132.66666666666666" y="265" width="148.99999999999997" height="40"/>
+                                                <rect key="frame" x="132.5" y="320" width="149" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="CREATE" backgroundImage="customBTN-2"/>
                                                 <connections>
@@ -77,7 +71,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. Choose Favorite Font." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S89-xq-jkB">
-                                                <rect key="frame" x="39.999999999999986" y="100" width="198.66666666666663" height="21"/>
+                                                <rect key="frame" x="40" y="100" width="198.5" height="21"/>
                                                 <fontDescription key="fontDescription" name="SFCompact-Regular" family="SF Compact" pointSize="18"/>
                                                 <color key="textColor" red="0.51372549019607838" green="0.51372549019607838" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -89,22 +83,32 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keep Your Word Inside The Border." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pL-aa-Qsu">
-                                                <rect key="frame" x="80.666666666666686" y="225" width="253" height="19.666666666666657"/>
+                                                <rect key="frame" x="80.5" y="225" width="253" height="19.5"/>
                                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
                                                 <color key="textColor" red="0.51372549019607838" green="0.51372549019607838" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLW-y2-ru4">
+                                                <rect key="frame" x="97" y="265" width="220" height="32"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <state key="normal" title="Choose Background(Optional)"/>
+                                                <connections>
+                                                    <action selector="background:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sq8-YE-LBe"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="ynw-nA-WmL" firstAttribute="leading" relation="lessThanOrEqual" secondItem="DBo-Qx-K5K" secondAttribute="leading" constant="40" id="8UP-xA-6q6"/>
+                                            <constraint firstItem="MLW-y2-ru4" firstAttribute="top" secondItem="yhN-5Z-l4S" secondAttribute="bottom" constant="45" id="D91-83-eei"/>
                                             <constraint firstItem="hbK-Ez-UQt" firstAttribute="leading" relation="lessThanOrEqual" secondItem="DBo-Qx-K5K" secondAttribute="leading" constant="40" id="Eom-A8-CT0"/>
-                                            <constraint firstItem="6Bh-1I-mfd" firstAttribute="top" secondItem="yhN-5Z-l4S" secondAttribute="bottom" constant="45" id="Gg7-Wj-KFC"/>
+                                            <constraint firstItem="6Bh-1I-mfd" firstAttribute="top" secondItem="yhN-5Z-l4S" secondAttribute="bottom" constant="100" id="Gg7-Wj-KFC"/>
                                             <constraint firstItem="yhN-5Z-l4S" firstAttribute="top" secondItem="ynw-nA-WmL" secondAttribute="bottom" constant="40" id="HqJ-KX-RKJ"/>
                                             <constraint firstItem="OX4-Pe-QsE" firstAttribute="leading" secondItem="DBo-Qx-K5K" secondAttribute="leading" constant="40" id="ICF-63-Z29"/>
                                             <constraint firstItem="ynw-nA-WmL" firstAttribute="centerX" secondItem="DBo-Qx-K5K" secondAttribute="centerX" id="JDR-4f-iYp"/>
                                             <constraint firstItem="hbK-Ez-UQt" firstAttribute="centerX" secondItem="DBo-Qx-K5K" secondAttribute="centerX" id="Lfr-8m-Lu1"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kow-ES-2C2" secondAttribute="trailing" constant="20" symbolic="YES" id="M9A-th-68Y"/>
-                                            <constraint firstAttribute="height" constant="350" id="Mbo-lp-nFV"/>
+                                            <constraint firstAttribute="height" constant="400" id="Mbo-lp-nFV"/>
+                                            <constraint firstItem="MLW-y2-ru4" firstAttribute="centerX" secondItem="DBo-Qx-K5K" secondAttribute="centerX" id="Ta2-E9-Wdv"/>
                                             <constraint firstItem="yhN-5Z-l4S" firstAttribute="centerX" secondItem="DBo-Qx-K5K" secondAttribute="centerX" id="Vb3-SW-xks"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="OX4-Pe-QsE" secondAttribute="trailing" constant="20" symbolic="YES" id="VsU-aZ-M5Y"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="S89-xq-jkB" secondAttribute="trailing" constant="20" symbolic="YES" id="W0Q-ku-fPx"/>
@@ -132,32 +136,39 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="bAW-AI-NuD"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="L26-BJ-agC"/>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mIm-Ni-r3B" customClass="CustomView" customModule="Ippitsu" customModuleProvider="target">
+                                <rect key="frame" x="40" y="64" width="334" height="334"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="mIm-Ni-r3B" secondAttribute="height" multiplier="1:1" id="maZ-w8-faQ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="1" green="0.92156862745098034" blue="0.83137254901960778" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8ZJ-IM-r6h" secondAttribute="trailing" constant="40" id="CGh-XS-zpP"/>
-                            <constraint firstItem="8ZJ-IM-r6h" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IkR-8h-C7c"/>
+                            <constraint firstItem="mIm-Ni-r3B" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AIM-UQ-nzR"/>
+                            <constraint firstItem="5fq-xb-p3a" firstAttribute="top" secondItem="mIm-Ni-r3B" secondAttribute="bottom" id="G9a-Of-R8D"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mIm-Ni-r3B" secondAttribute="trailing" constant="40" id="GcW-1L-uqw"/>
+                            <constraint firstItem="mIm-Ni-r3B" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Mfq-RL-e2i"/>
+                            <constraint firstItem="mIm-Ni-r3B" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="YAx-Ro-ssB"/>
                             <constraint firstItem="5pL-aa-Qsu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZIQ-X5-5m9"/>
                             <constraint firstItem="5fq-xb-p3a" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="aJH-K0-sPO"/>
                             <constraint firstItem="5fq-xb-p3a" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dIx-G5-S0K"/>
-                            <constraint firstItem="8ZJ-IM-r6h" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="kSq-XI-ny4"/>
-                            <constraint firstItem="5fq-xb-p3a" firstAttribute="top" secondItem="8ZJ-IM-r6h" secondAttribute="bottom" id="m8u-ox-eLq"/>
                             <constraint firstItem="5fq-xb-p3a" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="nUF-RK-qZw"/>
-                            <constraint firstItem="8ZJ-IM-r6h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="nm4-l7-rEu"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="fontSlider" destination="yhN-5Z-l4S" id="UQd-gN-GgS"/>
-                        <outlet property="imageView" destination="8ZJ-IM-r6h" id="kFm-6i-bnn"/>
                         <outlet property="inputFirstText" destination="hbK-Ez-UQt" id="3wm-pF-oBz"/>
                         <outlet property="inputFontTextField" destination="ynw-nA-WmL" id="gbe-bp-Ykv"/>
+                        <outlet property="mainWindow" destination="mIm-Ni-r3B" id="ZVg-V7-fF1"/>
                         <outlet property="scrollView" destination="5fq-xb-p3a" id="ZdP-HH-k05"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="16.800000000000001" y="93.103448275862078"/>
+            <point key="canvasLocation" x="15.942028985507248" y="93.080357142857139"/>
         </scene>
         <!--Preview View Controller-->
         <scene sceneID="cV3-Gl-RAT">
@@ -175,7 +186,7 @@
                                 </constraints>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TAF-K1-cJZ">
-                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="rewind" id="4Oe-Qv-lyb">
                                         <connections>
@@ -185,13 +196,13 @@
                                 </items>
                             </toolbar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YdX-0i-CcD">
-                                <rect key="frame" x="0.0" y="398" width="414" height="415"/>
+                                <rect key="frame" x="0.0" y="398" width="414" height="420"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WsP-Nv-TMa" userLabel="ContentsView">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fIK-Xw-7Ox">
-                                                <rect key="frame" x="132.66666666666666" y="100" width="148.99999999999997" height="40"/>
+                                                <rect key="frame" x="132.5" y="100" width="149" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="RANDOMIZE" backgroundImage="customBTN-2"/>
                                                 <connections>
@@ -199,7 +210,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVX-SH-bdi">
-                                                <rect key="frame" x="132.66666666666666" y="165" width="148.99999999999997" height="40"/>
+                                                <rect key="frame" x="132.5" y="165" width="149" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="EXPORT" backgroundImage="customBTN-2"/>
                                                 <connections>
@@ -216,7 +227,7 @@ EXPORT···Share or Save.</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HfL-0I-piF">
-                                                <rect key="frame" x="132.66666666666666" y="35" width="148.99999999999997" height="40"/>
+                                                <rect key="frame" x="132.5" y="35" width="149" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="REPLAY" backgroundImage="customBTN-2"/>
                                                 <connections>
@@ -280,6 +291,9 @@ EXPORT···Share or Save.</string>
         </scene>
     </scenes>
     <resources>
-        <image name="customBTN-2" width="148.66667175292969" height="40"/>
+        <image name="customBTN-2" width="148.5" height="40"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

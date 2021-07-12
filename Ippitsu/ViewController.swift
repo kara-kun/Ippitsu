@@ -8,13 +8,16 @@
 import UIKit
 import SVProgressHUD
 
-class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
-
+class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    
+    @IBOutlet weak var mainWindow: CustomView!
+    
     //@IBOutlet weak var firstTextLabel: UILabel!
     @IBOutlet weak var inputFirstText: UITextField!
     @IBOutlet weak var inputFontTextField: UITextField!
     @IBOutlet weak var fontSlider: UISlider!
-    @IBOutlet weak var imageView: UIImageView!
+    //@IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     
     //-------------firstTextLabelの初期化------------
@@ -76,9 +79,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         firstTextLabel.adjustsFontSizeToFitWidth = false
         firstTextLabel.text = ""
         //firstTextLabel.layer.position = CGPoint(x: self.imageView.frame.width/2, y: self.imageView.frame.height/2)
-        firstTextLabel.frame = CGRect(x: imageView.frame.width/2 - (imageView.frame.width / 1.25)/2, y: imageView.frame.height/2 - 50.0 , width: imageView.frame.width / 1.25, height:100)
+        firstTextLabel.frame = CGRect(x: mainWindow.frame.width/2 - (mainWindow.frame.width / 1.25)/2, y: mainWindow.frame.height/2 - 50.0 , width: mainWindow.frame.width / 1.25, height:100)
         
-        imageView.addSubview(firstTextLabel)
+        mainWindow.addSubview(firstTextLabel)
         
         //スライダーの値を、設定したfontSizeの初期値(＝24)にする。
         fontSlider.value = Float(fontSize/100)
@@ -90,8 +93,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         notificationLabel.font = UIFont(name: "Helvetica", size: CGFloat(14.0))
         //notificationLabel.text = "Your Word Will Appear Here."
         notificationLabel.text = NSLocalizedString("Your Word Will Appear Here.", comment: "")
-        notificationLabel.frame = CGRect(x: imageView.frame.width/2 - (imageView.frame.width / 1.25)/2, y: imageView.frame.height/2 - 10.0 , width: imageView.frame.width / 1.25, height:20)
-        imageView.addSubview(notificationLabel)
+        notificationLabel.frame = CGRect(x: mainWindow.frame.width/2 - (mainWindow.frame.width / 1.25)/2, y: mainWindow.frame.height/2 - 10.0 , width: mainWindow.frame.width / 1.25, height:20)
+        mainWindow.addSubview(notificationLabel)
         
         //ーーーーーーーーーtoolBarの定義ーーーーーーーーーー
         let toolbar = UIToolbar()
@@ -177,7 +180,39 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         //pickerViewを消す
         self.inputFontTextField.endEditing(true)
     }
-
+    
+    //ChooseBackgroundが押された時の処理
+    @IBAction func background(_ sender: Any) {
+        let alert = UIAlertController(title: "Background", message: "Set Your Favorite Background Image.", preferredStyle: .actionSheet)
+        alert.pruneNegativeWidthConstraints()
+        
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (alert) in
+            //UIImagePickerControllerのインスタンス（カメラ）をあげる
+            let camera = UIImagePickerController.SourceType.camera
+            //カメラが有効ならば、起動する。
+            if UIImagePickerController.isSourceTypeAvailable(camera) {
+                let picker = UIImagePickerController()
+                picker.sourceType = camera
+                picker.delegate = self
+                self.present(picker, animated: true, completion: nil)
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Choose From Library", style: .default, handler: {(alert) in
+            //UIImagePickerControllerのインスタンス（ライブラリ）をあげる
+            let library = UIImagePickerController.SourceType.photoLibrary
+            //ライブラリが有効ならば、起動する。
+            if UIImagePickerController.isSourceTypeAvailable(library) {
+                let picker = UIImagePickerController()
+                picker.sourceType = library
+                picker.delegate = self
+                self.present(picker, animated: true, completion: nil)
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
     //--------------CREATEボタンが押されたときの処理(Segue)-----------------
     //firstTextLabelが空->テキストが入力されていない場合は画面遷移させない
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
@@ -197,20 +232,51 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         return true
     }
     
+    //segueの設定
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-            //遷移先PreviewViewControllerのインスタンスを設定
-            let previewViewController = segue.destination as! PreviewViewController
-            //現在の文字列を遷移先previewViewControllerへ引き継ぐ
-            previewViewController.writtenText = firstTextLabel.text!
-            //現在のフォントを遷移先previewViewControllerへ引き継ぐ
-            previewViewController.fontSize = self.fontSize
-            //現在の文字サイズを遷移先previewViewControllerへ引き継ぐ
-            previewViewController.fontType = self.fontType
+        //遷移先PreviewViewControllerのインスタンスを設定
+        let previewViewController = segue.destination as! PreviewViewController
+        //現在の文字列を遷移先previewViewControllerへ引き継ぐ
+        previewViewController.writtenText = firstTextLabel.text!
+        //現在のフォントを遷移先previewViewControllerへ引き継ぐ
+        previewViewController.fontSize = self.fontSize
+        //現在の文字サイズを遷移先previewViewControllerへ引き継ぐ
+        previewViewController.fontType = self.fontType
             print(previewViewController.writtenText)
             print(previewViewController.fontSize)
             print(previewViewController.fontType)
+        
+        //backgroundが設定されている場合->backgroundの画像を大きさ、倍率、位置とともに引き継ぐ。
+        if let image = mainWindow.imageView.image {
+            previewViewController.contentSize = mainWindow.imageScrollView.contentSize
+            previewViewController.zoomScale = mainWindow.imageScrollView.zoomScale
+            previewViewController.contentOffset = mainWindow.imageScrollView.contentOffset
+            previewViewController.image = image
+        }
     }
     
+    //imagePickerController Delegate Method.
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        mainWindow.imageView.image = image
+        mainWindow.imageView.contentMode = .scaleAspectFill
+        self.dismiss(animated: true, completion: nil)
+    }
+    //imagePickerController Delegate Method.
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+}
+
+//UIAlertControllerのconstraintsエラー(iOSのバグ)を回避するためのエクステンション
+extension UIAlertController {
+    func pruneNegativeWidthConstraints() {
+        for subView in self.view.subviews {
+            for constraint in subView.constraints where constraint.debugDescription.contains("width == - 16") {
+                subView.removeConstraint(constraint)
+            }
+        }
+    }
 }
 

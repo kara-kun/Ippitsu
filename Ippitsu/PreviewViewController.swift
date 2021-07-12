@@ -13,6 +13,11 @@ class PreviewViewController: UIViewController, RecViewAnimationDelegate {
     var writtenText: String = ""
     var fontSize: Double = 18
     var fontType: String = ""
+    //backgroundが設定されている場合の必要なパラメーター
+    var contentSize = CGSize(width: 0, height: 0)
+    var zoomScale = CGFloat(1.0)
+    var contentOffset = CGPoint(x: 0, y: 0)
+    var image: UIImage? = nil
     
     //HUDの表示
     var statusHUD = NSLocalizedString("Exporting...", comment: "")
