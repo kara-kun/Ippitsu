@@ -394,15 +394,16 @@ class TextAnimation: UIView, CAAnimationDelegate {
         return animateArray
     }
     
+    
 }
 
 public func backgroundImage() -> UIColor {
-    let blueBG = UIColor(red: 0.0, green: 0.0, blue: 0.4, alpha: 1.0)
-    let redBG = UIColor(red: 0.4, green: 0.0, blue: 0.0, alpha: 1.0)
-    let greenBG = UIColor(red: 0.0, green: 0.4, blue: 0.0, alpha: 1.0)
-    let cyanBG = UIColor(red: 0.0, green: 0.4, blue: 0.4, alpha: 1.0)
-    let yellowBG = UIColor(red: 0.4, green: 0.4, blue: 0.0, alpha: 1.0)
-    let magentaBG = UIColor(red: 0.4, green: 0.0, blue: 0.4, alpha: 1.0)
+    let blueBG = UIColor(red: 0.0, green: 0.0, blue: 0.3, alpha: 1.0)
+    let redBG = UIColor(red: 0.3, green: 0.0, blue: 0.0, alpha: 1.0)
+    let greenBG = UIColor(red: 0.0, green: 0.3, blue: 0.0, alpha: 1.0)
+    let cyanBG = UIColor(red: 0.0, green: 0.3, blue: 0.3, alpha: 1.0)
+    let yellowBG = UIColor(red: 0.3, green: 0.3, blue: 0.0, alpha: 1.0)
+    let magentaBG = UIColor(red: 0.3, green: 0.0, blue: 0.3, alpha: 1.0)
     let blackBG = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
     
     let colorBG: [UIColor] = [blueBG, redBG, greenBG, cyanBG, yellowBG, magentaBG, blackBG,]
@@ -412,12 +413,12 @@ public func backgroundImage() -> UIColor {
 }
 
 public func textColorCreate() -> UIColor {
-    let blueTX = UIColor(red: 0.8, green: 0.8, blue: 1.0, alpha: 1.0)
-    let redTX = UIColor(red: 1.0, green: 0.8, blue: 0.8, alpha: 1.0)
-    let greenTX = UIColor(red: 0.8, green: 1.0, blue: 0.8, alpha: 1.0)
-    let cyanTX = UIColor(red: 0.8, green: 1.0, blue: 1.0, alpha: 1.0)
-    let yellowTX = UIColor(red: 1.0, green: 1.0, blue: 0.8, alpha: 1.0)
-    let magentaTX = UIColor(red: 1.0, green: 0.8, blue: 1.0, alpha: 1.0)
+    let blueTX = UIColor(red: 0.94, green: 0.94, blue: 1.0, alpha: 1.0)
+    let redTX = UIColor(red: 1.0, green: 0.94, blue: 0.94, alpha: 1.0)
+    let greenTX = UIColor(red: 0.94, green: 1.0, blue: 0.94, alpha: 1.0)
+    let cyanTX = UIColor(red: 0.94, green: 1.0, blue: 1.0, alpha: 1.0)
+    let yellowTX = UIColor(red: 1.0, green: 1.0, blue: 0.94, alpha: 1.0)
+    let magentaTX = UIColor(red: 1.0, green: 0.94, blue: 1.0, alpha: 1.0)
     let whiteTX = UIColor.white
     
     let colorTX: [UIColor] = [blueTX, redTX, greenTX, cyanTX, yellowTX, magentaTX, whiteTX,]

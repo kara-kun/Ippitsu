@@ -178,15 +178,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JHy-3f-Eif">
-                                <rect key="frame" x="40" y="64" width="334" height="334"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="JHy-3f-Eif" secondAttribute="height" multiplier="1:1" id="H5q-Wp-odN"/>
-                                    <constraint firstAttribute="width" secondItem="JHy-3f-Eif" secondAttribute="height" multiplier="1:1" id="XTz-xj-gGX"/>
-                                </constraints>
-                            </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TAF-K1-cJZ">
-                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <items>
                                     <barButtonItem systemItem="rewind" id="4Oe-Qv-lyb">
                                         <connections>
@@ -196,7 +189,7 @@
                                 </items>
                             </toolbar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YdX-0i-CcD">
-                                <rect key="frame" x="0.0" y="398" width="414" height="420"/>
+                                <rect key="frame" x="0.0" y="398" width="414" height="415"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WsP-Nv-TMa" userLabel="ContentsView">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
@@ -259,27 +252,35 @@ EXPORT···Share or Save.</string>
                                 <viewLayoutGuide key="contentLayoutGuide" id="wG8-iQ-7vQ"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="f0g-CE-RFh"/>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pdE-NJ-oQK" customClass="CustomView" customModule="Ippitsu" customModuleProvider="target">
+                                <rect key="frame" x="40" y="64" width="334" height="334"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="pdE-NJ-oQK" secondAttribute="height" multiplier="1:1" id="5GE-Um-LQk"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hmc-BY-lJO"/>
                         <color key="backgroundColor" red="0.7803921568627451" green="0.74901960784313726" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="YdX-0i-CcD" firstAttribute="trailing" secondItem="hmc-BY-lJO" secondAttribute="trailing" id="8dp-9V-E0W"/>
-                            <constraint firstItem="JHy-3f-Eif" firstAttribute="centerX" secondItem="LJg-UJ-0vF" secondAttribute="centerX" id="NMd-k0-NmZ"/>
-                            <constraint firstItem="TAF-K1-cJZ" firstAttribute="centerX" secondItem="JHy-3f-Eif" secondAttribute="centerX" id="Qzi-2B-8v8"/>
+                            <constraint firstItem="pdE-NJ-oQK" firstAttribute="leading" secondItem="hmc-BY-lJO" secondAttribute="leading" constant="40" id="BiH-dM-Km4"/>
+                            <constraint firstItem="TAF-K1-cJZ" firstAttribute="leading" secondItem="hmc-BY-lJO" secondAttribute="leading" id="Nau-ql-3qI"/>
                             <constraint firstItem="hmc-BY-lJO" firstAttribute="bottom" secondItem="TAF-K1-cJZ" secondAttribute="bottom" id="R3R-ig-skZ"/>
+                            <constraint firstItem="TAF-K1-cJZ" firstAttribute="trailing" secondItem="hmc-BY-lJO" secondAttribute="trailing" id="RuW-q7-LJK"/>
                             <constraint firstItem="YdX-0i-CcD" firstAttribute="leading" secondItem="hmc-BY-lJO" secondAttribute="leading" id="ZcK-Vl-nYJ"/>
-                            <constraint firstItem="YdX-0i-CcD" firstAttribute="top" secondItem="JHy-3f-Eif" secondAttribute="bottom" id="jjY-xa-W1g"/>
-                            <constraint firstItem="JHy-3f-Eif" firstAttribute="top" secondItem="hmc-BY-lJO" secondAttribute="top" constant="20" id="mvZ-UI-X0E"/>
+                            <constraint firstItem="YdX-0i-CcD" firstAttribute="top" secondItem="pdE-NJ-oQK" secondAttribute="bottom" id="hHN-DT-BPh"/>
+                            <constraint firstItem="pdE-NJ-oQK" firstAttribute="centerX" secondItem="LJg-UJ-0vF" secondAttribute="centerX" id="ivN-Zh-o8X"/>
                             <constraint firstItem="TAF-K1-cJZ" firstAttribute="top" secondItem="YdX-0i-CcD" secondAttribute="bottom" id="pd5-aY-Fnc"/>
                             <constraint firstItem="TAF-K1-cJZ" firstAttribute="leading" secondItem="hmc-BY-lJO" secondAttribute="leading" id="qy2-52-aTb"/>
-                            <constraint firstItem="JHy-3f-Eif" firstAttribute="leading" secondItem="hmc-BY-lJO" secondAttribute="leading" constant="40" id="v75-XF-jjW"/>
-                            <constraint firstItem="hmc-BY-lJO" firstAttribute="trailing" secondItem="JHy-3f-Eif" secondAttribute="trailing" constant="40" id="yDj-Gv-fUZ"/>
+                            <constraint firstItem="pdE-NJ-oQK" firstAttribute="top" secondItem="hmc-BY-lJO" secondAttribute="top" constant="20" id="sfR-AX-h9i"/>
+                            <constraint firstItem="hmc-BY-lJO" firstAttribute="trailing" secondItem="pdE-NJ-oQK" secondAttribute="trailing" constant="40" id="vo8-kz-PRY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Lc5-rb-tO9"/>
                     <connections>
                         <outlet property="exportBTN" destination="qVX-SH-bdi" id="h1a-HO-zHb"/>
-                        <outlet property="imageView" destination="JHy-3f-Eif" id="ZYL-FP-hZZ"/>
+                        <outlet property="mainWindow" destination="pdE-NJ-oQK" id="W4v-kD-AFo"/>
                         <outlet property="randomBTN" destination="fIK-Xw-7Ox" id="yeK-BK-gma"/>
                         <outlet property="replayBTN" destination="HfL-0I-piF" id="SBN-ca-CAc"/>
                     </connections>
@@ -287,7 +288,7 @@ EXPORT···Share or Save.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gtf-Dm-z34" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="vcM-Fd-pGu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="937.5" y="91.901408450704224"/>
+            <point key="canvasLocation" x="936.23188405797111" y="91.741071428571431"/>
         </scene>
     </scenes>
     <resources>

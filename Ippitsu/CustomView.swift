@@ -20,6 +20,8 @@ class CustomView: UIView, UIScrollViewDelegate {
     //imageScrollViewを接続。UIImageViewのインスタンスを設定。
     @IBOutlet weak var imageScrollView: UIScrollView!
     var imageView = UIImageView()
+    //var textImageView = UIImageView()
+    @IBOutlet weak var textImageView: UIImageView!
     
     //------------Initiarize and load CustomView-------------
     override init(frame: CGRect) {
@@ -45,6 +47,7 @@ class CustomView: UIView, UIScrollViewDelegate {
         print("awakeFromNib")
         super.awakeFromNib()
         //Declear scrollView delegate and set the background colour.
+        //imageScrollView.layer.zPosition = CGFloat(-50.0)
         imageScrollView.backgroundColor = UIColor.gray
         imageScrollView.delegate = self
         
@@ -52,6 +55,10 @@ class CustomView: UIView, UIScrollViewDelegate {
         self.imageView.frame = CGRect(x: 0, y: 0, width:imageScrollView.frame.width, height:imageScrollView.frame.height)
         imageView.contentMode = .scaleAspectFill
         imageScrollView.addSubview(imageView)
+        
+        //set imageViewForText
+        self.textImageView.frame = CGRect(x: 0, y: 0, width:imageScrollView.frame.width, height:imageScrollView.frame.height)
+        imageScrollView.addSubview(textImageView)
         
         //Define Zoom scale of scrollView.
         self.imageScrollView.maximumZoomScale = 4.0

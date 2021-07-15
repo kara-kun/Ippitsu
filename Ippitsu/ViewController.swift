@@ -186,6 +186,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         let alert = UIAlertController(title: "Background", message: "Set Your Favorite Background Image.", preferredStyle: .actionSheet)
         alert.pruneNegativeWidthConstraints()
         
+        //カメラを選択
         alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (alert) in
             //UIImagePickerControllerのインスタンス（カメラ）をあげる
             let camera = UIImagePickerController.SourceType.camera
@@ -197,6 +198,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
                 self.present(picker, animated: true, completion: nil)
             }
         }))
+        
+        //ライブラリー選択
         alert.addAction(UIAlertAction(title: "Choose From Library", style: .default, handler: {(alert) in
             //UIImagePickerControllerのインスタンス（ライブラリ）をあげる
             let library = UIImagePickerController.SourceType.photoLibrary
@@ -208,6 +211,17 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
                 self.present(picker, animated: true, completion: nil)
             }
         }))
+        
+        //もし既に画像が選択されていたら、それを削除するメニューを表示する。
+        if let _ = mainWindow.imageView.image {
+            alert.addAction(UIAlertAction(title: "Remove Image", style: .destructive, handler: {(alert) in
+                //既存の画像を削除し、zoomScaleを1.0に戻す。
+                self.mainWindow.imageView.image = nil
+                self.mainWindow.imageScrollView.zoomScale = CGFloat(1.0)
+            }))
+        }
+        
+        //キャンセルボタン
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         present(alert, animated: true, completion: nil)
@@ -257,12 +271,18 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     
     //imagePickerController Delegate Method.
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        //imagePickerControllerが取得した画像をUIImageとして変数imageに定義
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        //scrollViewの倍率を1.0に戻す
+        self.mainWindow.imageScrollView.zoomScale = CGFloat(1.0)
+        //画像をCustomViewにセットする。
         mainWindow.imageView.image = image
         mainWindow.imageView.contentMode = .scaleAspectFill
+        mainWindow.imageView.alpha = 0.7
+        //modalViewを消す。
         self.dismiss(animated: true, completion: nil)
     }
-    //imagePickerController Delegate Method.
+    //imagePickerController Delegate Method.キャンセルされた時->modalViewを消す。
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true, completion: nil)
     }
